@@ -41,18 +41,17 @@ KWM - DTGR - Call | Giao lắp | Không VAT | Cước xe: 100.000đ | Ghi chú t
 
 Quy tắc ghép:
 
-| Văn bản hiển thị (UI)                | Văn bản copy vào clipboard                 |
-|--------------------------------------|--------------------------------------------|
-| Field 1 = KWM                        | `KWM - [Nguồn khách] - [Kênh tương tác]`   |
-| Field 1 = KWC/KLM/KLC                | Giá trị Field 1 (đứng đầu chuỗi)           |
-| Hình thức giao = Giao lắp            | `Giao lắp`                                 |
-| Hình thức giao = GKL (Giao không lắp)| `GKL`                                      |
-| Hình thức giao = BTK (Bốc tại kho)   | `BTK`                                      |
-| VAT = Có lấy VAT                     | `VAT`                                      |
-| VAT = Không lấy VAT                  | `Không VAT`                                |
-| Cước xe (ví dụ nhập `100000`)        | `Cước xe: 100.000đ`                        |
-| Ghi chú                              | `| [nội dung ghi chú]` (nối cuối chuỗi)    |
-| Không nhập các field tùy chọn        | Những phần tương ứng sẽ bị loại bỏ         |
+| Văn bản hiển thị (UI)                | Văn bản copy vào clipboard                       |
+|--------------------------------------|--------------------------------------------------|
+| Loaị, nguồn, kênh khách hàng         | `[Loại khách] - [Nguồn khách] - [Kênh tương tác]`|
+| Hình thức giao = Giao lắp            | `Giao lắp`                                       |
+| Hình thức giao = GKL (Giao không lắp)| `GKL`                                            |
+| Hình thức giao = BTK (Bốc tại kho)   | `BTK`                                            |
+| VAT = Có lấy VAT                     | `VAT`                                            |
+| VAT = Không lấy VAT                  | `Không VAT`                                      |
+| Cước xe (ví dụ nhập `100000`)        | `Cước xe: 100.000đ`                              |
+| Ghi chú                              | `| [nội dung ghi chú]` (nối cuối chuỗi)          |
+| Không nhập các field tùy chọn        | Những phần tương ứng sẽ bị loại bỏ               |
 
 
 ## Yêu cầu
