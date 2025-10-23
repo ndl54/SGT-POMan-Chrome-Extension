@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extension Giao Diện</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="window-shell">
+        <header class="window-header">
+            <img src="/images/logo.png" alt="SGT Sales" class="window-logo">
+        </header>
+
+        <main class="window-body">
+            <section class="field">
+                <label for="field1">Loại khách</label>
+                <select id="field1">
+                    <option value="KWM">KWM</option>
+                    <option value="KWC">KWC</option>
+                    <option value="KLM">KLM</option>
+                    <option value="KLC">KLC</option>
+                </select>
+            </section>
+
+            <section class="field">
+                <label for="field2">Nguồn Web</label>
+                <select id="field2" disabled>
+                    <option value="">Chọn Nguồn Khách</option>
+                    <option value="SGT">SGT</option>
+                    <option value="DTGR">DTGR</option>
+                    <option value="DTMB">DTMB</option>
+                    <option value="WSS">WSS</option>
+                </select>
+            </section>
+
+            <section class="field">
+                <label for="field3">Kênh tương tác</label>
+                <select id="field3" disabled>
+                    <option value="">Chọn Kênh Tương Tác</option>
+                    <option value="Call">Call</option>
+                    <option value="OA">OA</option>
+                    <option value="DW">DW</option>
+                    <option value="FB">FB</option>
+                </select>
+            </section>
+
+            <section class="field">
+                <label for="deliveryMethod">Hình thức giao</label>
+                <select id="deliveryMethod">
+                    <option value="">Chọn Hình Thức Giao</option>
+                    <option value="Giao Lắp">Giao lắp</option>
+                    <option value="GKL">GKL (Giao không lắp)</option>
+                    <option value="BTK">BTK (Bốc tại kho)</option>
+                </select>
+            </section>
+
+            <section class="field">
+                <label for="vatOption">VAT</label>
+                <select id="vatOption">
+                    <option value="">Chọn VAT</option>
+                    <option value="VAT">Có lấy VAT</option>
+                    <option value="Không VAT">Không lấy VAT</option>
+                </select>
+            </section>
+
+            <section class="field">
+                <label for="note">Ghi chú</label>
+                <textarea id="note" placeholder="Ghi chú..."></textarea>
+            </section>
+
+            <section class="field">
+                <label for="shippingFee">Cước xe (nếu có)</label>
+                <div class="currency-input">
+                    <input type="text" id="shippingFee" placeholder="0" inputmode="numeric">
+                    <span class="suffix">đ</span>
+                </div>
+            </section>
+
+            <button id="copyButton" class="primary-button">Sao chép ghi chú</button>
+        </main>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
