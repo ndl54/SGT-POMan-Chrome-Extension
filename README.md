@@ -31,9 +31,22 @@ Extension Chrome giúp tạo và sao chép ghi chú đơn đặt hàng khi lên 
 4. Nhấn nút **Tải tiện ích đã giải nén** và chọn thư mục chứa extension
 
 
-## Format kết quả: 
+## Format kết quả 
 
-`KWM - [Nguồn Khách] - [Kênh Tương Tác] | [Ghi chú]`
+Ví dụ khi điền đầy đủ:
+
+```
+KWM - DTGR - Call | Giao lắp | Không VAT | Cước xe: 100.000đ | Ghi chú tùy chọn
+```
+
+Quy tắc ghép:
+
+- `Field 1` luôn đứng đầu (KWM/KWC/KLM/KLC).  
+- Nếu chọn **KWM**, tự động ghép `Nguồn Khách` và `Kênh Tương Tác`.  
+- Nếu chọn **Hình thức giao** sẽ chèn sau dấu `|`.  
+- Nếu chọn **VAT** sẽ nối tiếp ngay sau đó.  
+- Nếu nhập **Cước xe**, định dạng tự động thành `Cước xe: xxx.xxxđ`.  
+- Nếu nhập **Ghi chú**, nối cuối chuỗi bằng `| [ghi chú]`.
 
 
 ## Yêu cầu
