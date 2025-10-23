@@ -38,6 +38,16 @@ function copyText() {
         return;
     }
 
+    if (!deliveryMethod) {
+        alert('Vui lòng chọn Hình thức giao!');
+        return;
+    }
+
+    if (!vatOption) {
+        alert('Vui lòng chọn VAT!');
+        return;
+    }
+
     let textToCopy = field1;
 
     if (field1 === 'KWM') {
