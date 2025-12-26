@@ -164,6 +164,32 @@ select option {
     position: relative;
 }
 
+.checkbox-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid var(--field-border);
+    background-color: var(--field-bg);
+    color: var(--text-primary);
+    font-size: 13px;
+    line-height: 1.45;
+    padding: 10px 12px;
+}
+
+.checkbox-row input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    accent-color: var(--field-focus-border);
+}
+
+.checkbox-row:focus-within {
+    border-color: var(--field-focus-border);
+    box-shadow: 0 0 0 3px var(--field-focus-shadow);
+}
+
 .currency-input input {
     padding-right: 40px;
 }

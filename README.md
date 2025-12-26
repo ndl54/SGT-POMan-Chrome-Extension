@@ -8,6 +8,7 @@ Extension Chrome giúp tạo và sao chép ghi chú đơn đặt hàng khi lên 
 - Hỗ trợ loại khách hàng: KWM, KWC, KLM, KLC
 - Hỗ trợ nguồn khách: SGT, DTGR, DTMB, WSS
 - Hỗ trợ kênh tương tác: Call, OA, DW, FB
+- Hỗ trợ bán hàng bao kích (BK)
 - Hỗ trợ ghi chú VAT
 - Hỗ trợ ghi chú thêm
 - Hỗ trợ thêm phí cước xe
@@ -36,7 +37,7 @@ Extension Chrome giúp tạo và sao chép ghi chú đơn đặt hàng khi lên 
 Ví dụ khi điền đầy đủ:
 
 ```
-KWM - DTGR - Call | Giao lắp | Không VAT | Cước xe: 100.000đ | Ghi chú tùy chọn
+KWM - DTGR - OA | GKL | VAT | BK | Cước xe: 100.000đ | Ghi chú tùy chọn
 ```
 
 Quy tắc ghép:
@@ -49,6 +50,7 @@ Quy tắc ghép:
 | Hình thức giao = BTK (Bốc tại kho)   | `BTK`                                            |
 | VAT = Có lấy VAT                     | `VAT`                                            |
 | VAT = Không lấy VAT                  | `Không VAT`                                      |
+| Bán hàng bao kích                    | `BK`                                             |
 | Cước xe (ví dụ nhập `100000`)        | `Cước xe: 100.000đ`                              |
 | Ghi chú                              | `| [nội dung ghi chú]` (nối cuối chuỗi)          |
 | Không nhập các field tùy chọn        | Những phần tương ứng sẽ bị loại bỏ               |

@@ -30,6 +30,8 @@ function copyText() {
     const note = document.getElementById('note').value;
     const deliveryMethod = document.getElementById('deliveryMethod').value;
     const vatOption = document.getElementById('vatOption').value;
+    const bulkPacking = document.getElementById('bulkPacking');
+    const isBulkPacking = bulkPacking ? bulkPacking.checked : false;
     const shippingFeeInput = document.getElementById('shippingFee');
     const shippingFeeValue = shippingFeeInput ? shippingFeeInput.value.trim() : '';
 
@@ -60,6 +62,10 @@ function copyText() {
 
     if (vatOption) {
         textToCopy += ` | ${vatOption}`;
+    }
+
+    if (isBulkPacking) {
+        textToCopy += ` | BK`;
     }
 
     const formattedShippingFee = formatShippingFeeForCopy(shippingFeeValue);
