@@ -4,6 +4,12 @@ const PARTNER_CSV_PATH = 'doitacgiaohang.csv';
 const PARTNER_CACHE_KEY = 'partnerCache';
 const CASES_WITH_PARTNER = new Set(['case1', 'case2']);
 const PARTNER_SUGGESTION_LIMIT = 80;
+const CASE_COPY_LABELS = {
+    case1: 'Lấy NCC giao khách',
+    case2: 'Lấy NCC về kho',
+    case3: 'NCC giao về kho',
+    case4: 'NCC giao khách'
+};
 
 let partnerRecords = [];
 let partnerIndex = {
@@ -351,7 +357,7 @@ function resolvePartnerLabel(inputValue) {
 
 function copyText(elements) {
     const caseValue = elements.caseSelect.value;
-    const caseLabel = elements.caseSelect.options[elements.caseSelect.selectedIndex]?.text || '';
+    const caseLabel = CASE_COPY_LABELS[caseValue] || '';
     const activationValue = elements.activationInput.value.trim();
     const vatValue = elements.vatSelect.value;
     const partnerValue = resolvePartnerLabel(elements.partnerInput.value);
@@ -376,10 +382,22 @@ function copyText(elements) {
         return;
     }
 
-    const parts = [caseLabel];
+    const parts = [];
 
-    if (partnerValue) {
-        parts.push(partnerValue);
+    if (CASES_WITH_PARTNER.has(caseValue)) {
+        if (partnerValue) {
+            parts.push(partnerValue);
+        }
+        if (caseLabel) {
+            parts.push(caseLabel);
+        }
+    } else {
+        if (caseLabel) {
+            parts.push(caseLabel);
+        }
+        if (partnerValue) {
+            parts.push(partnerValue);
+        }
     }
 
     if (activationValue) {

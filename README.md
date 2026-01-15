@@ -21,15 +21,50 @@ Tiện ích giúp tạo nội dung cần sao chép nhanh cho bộ phận POMan d
 
 ## Định dạng nội dung sao chép
 
+Ví dụ khi điền đầy đủ (Case 1 hoặc Case 2):
+
+```
+Đối tác A [DT000001] | Lấy NCC giao khách | Còn Kích | Có VAT | Cước: 100.000đ | Ghi chú tùy chọn
+```
+
 Nội dung được ghép theo thứ tự:
 
 ```
-[Trường hợp] | [Tên đối tác [mã đối tác]] | [Kích hoạt] | [VAT] | Cước: [số tiền] | [Ghi chú]
+[Đối tác giao hàng] | [Trường hợp] | [Kích hoạt] | [VAT] | Cước: [số tiền] | [Ghi chú]
 ```
+
+Áp dụng thứ tự này khi chọn Case 1 hoặc Case 2. Với Case 3 hoặc Case 4, thứ tự sẽ là:
+
+```
+[Trường hợp] | [Đối tác giao hàng] | [Kích hoạt] | [VAT] | Cước: [số tiền] | [Ghi chú]
+```
+
+Quy tắc ghép:
+
+| Văn bản hiển thị (UI)                | Văn bản copy vào clipboard                           |
+|--------------------------------------|------------------------------------------------------|
+| Trường hợp (Case 1)                  | `Lấy NCC giao khách`                                 |
+| Trường hợp (Case 2)                  | `Lấy NCC về kho`                                     |
+| Trường hợp (Case 3)                  | `NCC giao về kho`                                    |
+| Trường hợp (Case 4)                  | `NCC giao khách`                                     |
+| Đối tác giao hàng                    | `Tên đối tác [mã đối tác]`                           |
+| Kích hoạt                            | `[Giá trị đã chọn]`                                  |
+| VAT = Có VAT                         | `Có VAT`                                             |
+| VAT = Không VAT                      | `Không VAT`                                          |
+| Cước (ví dụ nhập `100000`)           | `Cước: 100.000đ`                                     |
+| Ghi chú                              | `| [nội dung ghi chú]` (nối cuối chuỗi)              |
+| Không nhập các field tùy chọn        | Những phần tương ứng sẽ bị loại bỏ                   |
 
 Ghi chú:
 - Nếu không có tiền cước hoặc ghi chú thì bỏ qua phần tương ứng.
 - Đối tác sẽ tự động chuẩn hóa theo data: `Tên đối tác [mã đối tác]`.
+
+## Nhãn Trường hợp khi sao chép
+
+- Case 1: Lấy NCC giao khách
+- Case 2: Lấy NCC về kho
+- Case 3: NCC giao về kho
+- Case 4: NCC giao khách
 
 ## Dữ liệu đối tác giao hàng
 
