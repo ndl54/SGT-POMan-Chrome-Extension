@@ -1,63 +1,60 @@
-# Chrome Extension - SGT SALES
+﻿# SGT POMan Chrome Extension
 
-Extension Chrome giúp tạo và sao chép ghi chú đơn đặt hàng khi lên đơn hàng trên Kiot Việt.
-
+Tiện ích giúp tạo nội dung cần sao chép nhanh cho bộ phận POMan dựa trên các trường nhập liệu trong popup.
 
 ## Tính năng
 
-- Hỗ trợ loại khách hàng: KWM, KWC, KLM, KLC
-- Hỗ trợ nguồn khách: SGT, DTGR, DTMB, WSS
-- Hỗ trợ kênh tương tác: Call, OA, DW, FB
-- Hỗ trợ bán hàng bao kích (BK)
-- Hỗ trợ ghi chú VAT
-- Hỗ trợ ghi chú thêm
-- Hỗ trợ thêm phí cước xe
+- Chọn Trường hợp (Case 1-4)
+- Đối tác giao hàng (chỉ bắt buộc khi chọn Case 1 hoặc Case 2)
+- Trạng thái kích hoạt (danh sách gợi ý)
+- VAT (Có/Không)
+- Tiền cước (nếu có) và ghi chú thêm
 - Sao chép nhanh vào clipboard
+- Tải mới dữ liệu đối tác từ Google Sheet và cache vào storage
 
+## Trường bắt buộc
+
+- Trường hợp
+- Kích hoạt
+- VAT
+- Đối tác giao hàng: bắt buộc khi Trường hợp là Case 1 hoặc Case 2
+
+## Định dạng nội dung sao chép
+
+Nội dung được ghép theo thứ tự:
+
+```
+[Trường hợp] | [Tên đối tác [mã đối tác]] | [Kích hoạt] | [VAT] | Cước: [số tiền] | [Ghi chú]
+```
+
+Ghi chú:
+- Nếu không có tiền cước hoặc ghi chú thì bỏ qua phần tương ứng.
+- Đối tác sẽ tự động chuẩn hóa theo data: `Tên đối tác [mã đối tác]`.
+
+## Dữ liệu đối tác giao hàng
+
+Nguồn dữ liệu: Google Sheet (read-only).
+
+- Nút "Mở Google Sheet" để mở nhanh link nhập liệu.
+- Nút "Tải dữ liệu mới" sẽ fetch CSV từ Google Sheet và cache vào `chrome.storage`.
+- File gốc trong repo: `doitacgiaohang.csv` (được tạo từ Sheet).
+
+### Cập nhật file CSV trong repo
+
+Chạy script sau để cập nhật file CSV trong repo:
+
+```
+powershell -ExecutionPolicy Bypass -File scripts\fetch-doitacgiaohang.ps1
+```
 
 ## Cài đặt
 
-### Chrome giao diện tiếng Anh
-
-1. Tải bản mới nhất từ Releases, giải nén thành thư mục
-2. Mở Chrome và truy cập `chrome://extensions/`
-3. Bật công tắc **Developer mode** (góc trên cùng bên phải)
-4. Nhấn nút **Load unpacked** và chọn thư mục chứa extension
-
-### Chrome giao diện tiếng Việt
-
-1. Tải bản mới nhất từ Releases, giải nén thành thư mục
-2. Mở Chrome và truy cập `chrome://extensions/`
-3. Bật công tắc **Chế độ dành cho nhà phát triển** (góc trên cùng bên phải)
-4. Nhấn nút **Tải tiện ích đã giải nén** và chọn thư mục chứa extension
-
-
-## Format kết quả 
-
-Ví dụ khi điền đầy đủ:
-
-```
-KWM - DTGR - OA | GKL | VAT | BK | Cước xe: 100.000đ | Ghi chú tùy chọn
-```
-
-Quy tắc ghép:
-
-| Văn bản hiển thị (UI)                | Văn bản copy vào clipboard                       |
-|--------------------------------------|--------------------------------------------------|
-| Loaị, nguồn, kênh khách hàng         | `[Loại khách] - [Nguồn khách] - [Kênh tương tác]`|
-| Hình thức giao = Giao lắp            | `Giao lắp`                                       |
-| Hình thức giao = GKL (Giao không lắp)| `GKL`                                            |
-| Hình thức giao = BTK (Bốc tại kho)   | `BTK`                                            |
-| VAT = Có lấy VAT                     | `VAT`                                            |
-| VAT = Không lấy VAT                  | `Không VAT`                                      |
-| Bán hàng bao kích                    | `BK`                                             |
-| Cước xe (ví dụ nhập `100000`)        | `Cước xe: 100.000đ`                              |
-| Ghi chú                              | `| [nội dung ghi chú]` (nối cuối chuỗi)          |
-| Không nhập các field tùy chọn        | Những phần tương ứng sẽ bị loại bỏ               |
-
+1. Mở `chrome://extensions/`.
+2. Bật Developer mode.
+3. Chọn Load unpacked và trỏ tới thư mục dự án.
 
 ## Yêu cầu
 
-- Chrome Browser
-- Quyền truy cập clipboard
-- Quyền activeTab
+- Google Chrome
+- Quyền clipboard
+- Quyền storage (để cache dữ liệu đối tác)

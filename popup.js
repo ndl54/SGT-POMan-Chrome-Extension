@@ -2,7 +2,7 @@
 const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/1jjzb4CUl_9iJ9Hlgov7tqqifrRJPojTGkCItJ22PSTk/export?format=csv&gid=0';
 const PARTNER_CSV_PATH = 'doitacgiaohang.csv';
 const PARTNER_CACHE_KEY = 'partnerCache';
-const CASES_WITH_PARTNER = new Set(['case2', 'case3', 'case4']);
+const CASES_WITH_PARTNER = new Set(['case1', 'case2']);
 const PARTNER_SUGGESTION_LIMIT = 80;
 
 let partnerRecords = [];
@@ -41,16 +41,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function handleCaseChange(elements) {
     const caseValue = elements.caseSelect.value;
-    const shouldShowPartner = CASES_WITH_PARTNER.has(caseValue);
-    elements.partnerRow.hidden = !shouldShowPartner;
+    const canSelectPartner = CASES_WITH_PARTNER.has(caseValue);
+    elements.partnerRow.hidden = false;
+    elements.partnerInput.disabled = !canSelectPartner;
 
-    if (!shouldShowPartner) {
+    if (!canSelectPartner) {
         elements.partnerInput.value = '';
         elements.partnerList.innerHTML = '';
     }
 }
 
 function handlePartnerInput(elements) {
+    if (elements.partnerInput.disabled) {
+        elements.partnerList.innerHTML = '';
+        return;
+    }
     renderPartnerOptions(elements.partnerList, partnerRecords, elements.partnerInput.value);
 }
 
@@ -398,7 +403,6 @@ function copyText(elements) {
     const textToCopy = parts.join(' | ');
 
     navigator.clipboard.writeText(textToCopy).then(() => {
-        alert(`Đã sao chép: ${textToCopy}`);
     }).catch((error) => {
         console.error('Không thể sao chép', error);
     });
