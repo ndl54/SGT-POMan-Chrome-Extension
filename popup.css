@@ -46,7 +46,7 @@
 body {
     margin: 0;
     padding: 0;
-    width: 320px;
+    width: 340px;
     min-height: 100%;
     background: var(--window-bg);
     color: var(--text-primary);
@@ -102,8 +102,8 @@ body {
 
 select,
 textarea,
-.currency-input input,
-.checkbox-row {
+input[type="text"],
+.currency-input input {
     flex: 1 1 auto;
     min-width: 0;
 }
@@ -115,6 +115,7 @@ textarea,
 
 select,
 textarea,
+.input-stack input,
 .currency-input input {
     width: 100%;
     border-radius: 12px;
@@ -143,18 +144,25 @@ select:disabled {
 }
 
 textarea {
-    min-height: 44px;
+    min-height: 130px;
     resize: vertical;
 }
 
 textarea::placeholder {
     color: var(--text-muted);
-    opacity: 0.7;
-    font-size: 12px;
+    opacity: 1;
+    font-size: 13px;
+}
+
+input::placeholder {
+    color: var(--text-muted);
+    opacity: 1;
+    font-size: 13px;
 }
 
 select:focus,
 textarea:focus,
+input[type="text"]:focus,
 .currency-input input:focus {
     border-color: var(--field-focus-border);
     box-shadow: 0 0 0 3px var(--field-focus-shadow);
@@ -187,32 +195,6 @@ select option {
 
 .currency-input {
     position: relative;
-}
-
-.checkbox-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
-    border-radius: 12px;
-    border: 1px solid var(--field-border);
-    background-color: var(--field-bg);
-    color: var(--text-primary);
-    font-size: 13px;
-    line-height: 1.45;
-    padding: 10px 12px;
-}
-
-.checkbox-row input[type="checkbox"] {
-    width: 16px;
-    height: 16px;
-    margin: 0;
-    accent-color: var(--field-focus-border);
-}
-
-.checkbox-row:focus-within {
-    border-color: var(--field-focus-border);
-    box-shadow: 0 0 0 3px var(--field-focus-shadow);
 }
 
 .currency-input input {
@@ -255,6 +237,73 @@ select option {
 .primary-button:focus-visible {
     outline: 2px solid var(--field-focus-border);
     outline-offset: 2px;
+}
+
+.secondary-button,
+.ghost-button {
+    width: 100%;
+    border-radius: 999px;
+    padding: 10px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    transition: background-color 0.15s ease, transform 0.1s ease, border-color 0.15s ease;
+}
+
+.secondary-button {
+    border: none;
+    background: rgba(103, 80, 164, 0.12);
+    color: var(--text-primary);
+}
+
+.secondary-button:hover {
+    background: rgba(103, 80, 164, 0.2);
+    transform: translateY(-1px);
+}
+
+.secondary-button:active {
+    transform: translateY(0);
+}
+
+.ghost-button {
+    border: 1px solid var(--field-border);
+    background: transparent;
+    color: var(--text-muted);
+}
+
+.ghost-button:hover {
+    border-color: var(--field-focus-border);
+    color: var(--text-primary);
+}
+
+.button-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.button-row {
+    display: flex;
+    gap: 8px;
+}
+
+.button-row .secondary-button,
+.button-row .ghost-button {
+    flex: 1 1 0;
+}
+
+.input-stack {
+    flex: 1 1 auto;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.status-text {
+    font-size: 11px;
+    color: var(--text-muted);
 }
 
 ::-webkit-scrollbar {
