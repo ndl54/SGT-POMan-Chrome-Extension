@@ -43,10 +43,10 @@ Quy tắc ghép:
 
 | Văn bản hiển thị (UI)                                   | Văn bản copy vào clipboard                           |
 |---------------------------------------------------------|------------------------------------------------------|
-| NCC giao về kho SGT (Case 1)                            | `Lấy NCC giao khách`                                 |
-| NCC giao tới nhà khách hàng (Case 2)                    | `Lấy NCC về kho`                                     |
-| Giao vận/đối tác lấy NCC giao khách (Case 3)            | `NCC giao về kho`                                    |
-| Giao vận/đối tác lấy NCC giao về kho SGT (Case 4)       | `NCC giao khách`                                     |
+| NCC giao về kho SGT                                     | `Lấy NCC giao khách`                                 |
+| NCC giao tới nhà khách hàng                             | `Lấy NCC về kho`                                     |
+| Giao vận/đối tác lấy NCC giao khách                     | `NCC giao về kho`                                    |
+| Giao vận/đối tác lấy NCC giao về kho SGT                | `NCC giao khách`                                     |
 | Đối tác giao hàng                                       | `Tên đối tác [mã đối tác]`                           |
 | Kích hoạt                                               | `[Giá trị đã chọn]`                                  |
 | VAT = Có VAT                                            | `Có VAT`                                             |
