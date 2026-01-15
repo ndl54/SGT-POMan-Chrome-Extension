@@ -25,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
         partnerInput: document.getElementById('partnerInput'),
         partnerList: document.getElementById('partnerList'),
         activationInput: document.getElementById('activationInput'),
-        vatSelect: document.getElementById('vatSelect'),
         shippingFee: document.getElementById('shippingFee'),
         note: document.getElementById('note'),
         copyButton: document.getElementById('copyButton'),
@@ -359,7 +358,6 @@ function copyText(elements) {
     const caseValue = elements.caseSelect.value;
     const caseLabel = CASE_COPY_LABELS[caseValue] || '';
     const activationValue = elements.activationInput.value.trim();
-    const vatValue = elements.vatSelect.value;
     const partnerValue = resolvePartnerLabel(elements.partnerInput.value);
 
     if (!caseValue) {
@@ -374,11 +372,6 @@ function copyText(elements) {
 
     if (!activationValue) {
         alert('Vui lòng chọn trạng thái kích hoạt.');
-        return;
-    }
-
-    if (!vatValue) {
-        alert('Vui lòng chọn VAT.');
         return;
     }
 
@@ -402,10 +395,6 @@ function copyText(elements) {
 
     if (activationValue) {
         parts.push(activationValue);
-    }
-
-    if (vatValue) {
-        parts.push(vatValue);
     }
 
     const formattedShippingFee = formatShippingFeeForCopy(elements.shippingFee.value.trim());
