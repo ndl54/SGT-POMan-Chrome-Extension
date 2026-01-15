@@ -1,27 +1,27 @@
 ﻿# SGT POMan Chrome Extension
 
-Tiện ích giúp tạo nội dung cần sao chép nhanh cho bộ phận POMan dựa trên các trường nhập liệu trong popup.
+Tiện ích giúp tạo nội dung cần sao chép nhanh cho bộ phận tạo Phiếu Nhập Hàng Nhà Cung Cấp (POMan) dựa trên các trường nhập liệu trong popup.
 
 ## Tính năng
 
-- Chọn Trường hợp (Case 1-4)
-- Đối tác giao hàng (chỉ bắt buộc khi chọn Case 1 hoặc Case 2)
+- Chọn Trường hợp ai lấy hàng và giao về đâu.
+- Đối tác giao hàng (chỉ bắt buộc khi chọn Giao vận/đối tác lấy NCC)
 - Trạng thái kích hoạt (danh sách gợi ý)
 - VAT (Có/Không)
 - Tiền cước (nếu có) và ghi chú thêm
 - Sao chép nhanh vào clipboard
-- Tải mới dữ liệu đối tác từ Google Sheet và cache vào storage
+- Tải mới dữ liệu đối tác từ Google Sheet và cache vào bộ nhớ máy tính
 
 ## Trường bắt buộc
 
 - Trường hợp
 - Kích hoạt
 - VAT
-- Đối tác giao hàng: bắt buộc khi Trường hợp là Case 1 hoặc Case 2
+- Đối tác giao hàng: bắt buộc khi Trường hợp là Giao vận/đối tác lấy NCC
 
 ## Định dạng nội dung sao chép
 
-Ví dụ khi điền đầy đủ (Case 1 hoặc Case 2):
+Ví dụ khi điền đầy đủ (Giao vận/đối tác lấy NCC):
 
 ```
 Đối tác A [DT000001] | Lấy NCC giao khách | Còn Kích | Có VAT | Cước: 100.000đ | Ghi chú tùy chọn
