@@ -41,19 +41,19 @@ Nội dung được ghép theo thứ tự:
 
 Quy tắc ghép:
 
-| Văn bản hiển thị (UI)                | Văn bản copy vào clipboard                           |
-|--------------------------------------|------------------------------------------------------|
-| Trường hợp (Case 1)                  | `Lấy NCC giao khách`                                 |
-| Trường hợp (Case 2)                  | `Lấy NCC về kho`                                     |
-| Trường hợp (Case 3)                  | `NCC giao về kho`                                    |
-| Trường hợp (Case 4)                  | `NCC giao khách`                                     |
-| Đối tác giao hàng                    | `Tên đối tác [mã đối tác]`                           |
-| Kích hoạt                            | `[Giá trị đã chọn]`                                  |
-| VAT = Có VAT                         | `Có VAT`                                             |
-| VAT = Không VAT                      | `Không VAT`                                          |
-| Cước (ví dụ nhập `100000`)           | `Cước: 100.000đ`                                     |
-| Ghi chú                              | `| [nội dung ghi chú]` (nối cuối chuỗi)              |
-| Không nhập các field tùy chọn        | Những phần tương ứng sẽ bị loại bỏ                   |
+| Văn bản hiển thị (UI)                                   | Văn bản copy vào clipboard                           |
+|---------------------------------------------------------|------------------------------------------------------|
+| NCC giao về kho SGT (Case 1)                            | `Lấy NCC giao khách`                                 |
+| NCC giao tới nhà khách hàng (Case 2)                    | `Lấy NCC về kho`                                     |
+| Giao vận/đối tác lấy NCC giao khách (Case 3)            | `NCC giao về kho`                                    |
+| Giao vận/đối tác lấy NCC giao về kho SGT (Case 4)       | `NCC giao khách`                                     |
+| Đối tác giao hàng                                       | `Tên đối tác [mã đối tác]`                           |
+| Kích hoạt                                               | `[Giá trị đã chọn]`                                  |
+| VAT = Có VAT                                            | `Có VAT`                                             |
+| VAT = Không VAT                                         | `Không VAT`                                          |
+| Cước (ví dụ nhập `100000`)                              | `Cước: 100.000đ`                                     |
+| Ghi chú                                                 | `| [nội dung ghi chú]` (nối cuối chuỗi)              |
+| Không nhập các field tùy chọn                           | Những phần tương ứng sẽ bị loại bỏ                   |
 
 Ghi chú:
 - Nếu không có tiền cước hoặc ghi chú thì bỏ qua phần tương ứng.
