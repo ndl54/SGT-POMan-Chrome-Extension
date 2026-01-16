@@ -4,7 +4,7 @@ Tiện ích giúp tạo nội dung cần sao chép nhanh cho bộ phận tạo P
 
 ## Tính năng
 
-- Chọn Trường hợp ai lấy hàng và giao về đâu.
+- Chọn trường hợp ai lấy hàng và giao về đâu.
 - Đối tác giao hàng (chỉ bắt buộc khi chọn Giao vận/đối tác lấy NCC)
 - Trạng thái kích hoạt (danh sách gợi ý)
 - VAT (Có/Không)
@@ -44,7 +44,7 @@ Quy tắc ghép:
 | Văn bản hiển thị (UI)                                   | Văn bản copy vào clipboard                           |
 |---------------------------------------------------------|------------------------------------------------------|
 | NCC giao về kho SGT                                     | `Lấy NCC giao khách`                                 |
-| NCC giao tới nhà khách hàng                             | `Lấy NCC về kho`                                     |
+| NCC giao tại nhà khách hàng                             | `Lấy NCC về kho`                                     |
 | Giao vận/đối tác lấy NCC giao khách                     | `NCC giao về kho`                                    |
 | Giao vận/đối tác lấy NCC giao về kho SGT                | `NCC giao khách`                                     |
 | Đối tác giao hàng                                       | `Tên đối tác [mã đối tác]`                           |
@@ -94,8 +94,8 @@ powershell -ExecutionPolicy Bypass -File scripts\fetch-doitacgiaohang.ps1
 - Quyền clipboard
 - Quyền storage (để cache dữ liệu đối tác)
 
-## Nha cung cap
+## Nhà cung cấp
 
-- Truong tuy chon, goi y tu `nhacungcap.csv` hoac sheet `Nha_Cung_Cap`.
-- Khi copy, nha cung cap nam sau doi tac giao hang.
-- Nut tai du lieu se cap nhat ca doi tac giao hang va nha cung cap.
+- Trường tùy chọn, gợi ý từ `nhacungcap.csv` hoặc sheet `Nha_Cung_Cap`.
+- Khi copy, nhà cung cấp nằm sau đối tác giao hàng.
+- Nút tải dữ liệu sẽ cập nhật cả đối tác giao hàng và nhà cung cấp.

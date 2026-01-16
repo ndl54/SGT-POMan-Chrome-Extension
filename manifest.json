@@ -1,8 +1,8 @@
-{
+﻿{
   "manifest_version": 3,
   "name": "SGT POMan",
   "version": "26.1.15",
-  "description": "Tiện ích mở rộng Chrome cho POMAN (Người đặt hàng nhập)\nfb.com/ndl54",
+  "description": "Tiện ích mở rộng Chrome cho POMAN (Người tạo phiếu nhập hàng)\nfb.com/ndl54",
   "author": "Nguyễn Đình Lộc (NDL54)",
   "permissions": [
     "activeTab",

@@ -1,4 +1,4 @@
-const SHEET_ID = '1jjzb4CUl_9iJ9Hlgov7tqqifrRJPojTGkCItJ22PSTk';
+﻿const SHEET_ID = '1jjzb4CUl_9iJ9Hlgov7tqqifrRJPojTGkCItJ22PSTk';
 const SHEET_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/edit`;
 const PARTNER_SHEET_NAME = 'Doi_Tac_Giao_Hang';
 const SUPPLIER_SHEET_NAME = 'Nha_Cung_Cap';
@@ -12,10 +12,10 @@ const CASES_WITH_PARTNER = new Set(['case1', 'case2']);
 const PARTNER_SUGGESTION_LIMIT = 80;
 const SUPPLIER_SUGGESTION_LIMIT = 80;
 const CASE_COPY_LABELS = {
-    case1: 'L?y NCC giao kh�ch',
-    case2: 'L?y NCC v? kho',
-    case3: 'NCC giao v? kho',
-    case4: 'NCC giao kh�ch'
+    case1: 'Lấy NCC giao khách',
+    case2: 'Lấy NCC về kho',
+    case3: 'NCC giao về kho',
+    case4: 'NCC giao khách'
 };
 
 let partnerRecords = [];
@@ -33,8 +33,8 @@ let supplierIndex = {
 };
 
 const statusState = {
-    partner: 'Chua tai du lieu doi tac',
-    supplier: 'Chua tai du lieu nha cung cap'
+    partner: 'Chưa tải dữ liệu đối tác',
+    supplier: 'Chưa tải dữ liệu nhà cung cấp'
 };
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -81,7 +81,7 @@ function handlePartnerInput(elements) {
 }
 function setStatus(elements, key, message) {
     statusState[key] = message;
-    elements.dataStatus.textContent = `Doi tac: ${statusState.partner} | Nha cung cap: ${statusState.supplier}`;
+    elements.dataStatus.textContent = `Đối tác: ${statusState.partner} | Nhà cung cấp: ${statusState.supplier}`;
 }
 
 function loadAllData(elements) {
@@ -95,7 +95,7 @@ function loadPartnerData(elements) {
             const cache = result[PARTNER_CACHE_KEY];
             if (cache?.records?.length) {
                 setPartnerRecords(cache.records, elements);
-                setStatus(elements, 'partner', `Da tai du lieu doi tac (cache ${formatTimestamp(cache.fetchedAt)})` );
+                setStatus(elements, 'partner', `Đã tải dữ liệu đối tác (cache ${formatTimestamp(cache.fetchedAt)})` );
             } else {
                 fetchLocalPartnerCsv(elements);
             }
@@ -111,7 +111,7 @@ function loadSupplierData(elements) {
             const cache = result[SUPPLIER_CACHE_KEY];
             if (cache?.records?.length) {
                 setSupplierRecords(cache.records, elements);
-                setStatus(elements, 'supplier', `Da tai du lieu nha cung cap (cache ${formatTimestamp(cache.fetchedAt)})` );
+                setStatus(elements, 'supplier', `Đã tải dữ liệu nhà cung cấp (cache ${formatTimestamp(cache.fetchedAt)})` );
             } else {
                 fetchLocalSupplierCsv(elements);
             }
@@ -122,8 +122,8 @@ function loadSupplierData(elements) {
 }
 
 function refreshAllData(elements) {
-    setStatus(elements, 'partner', 'Dang tai du lieu...');
-    setStatus(elements, 'supplier', 'Dang tai du lieu...');
+    setStatus(elements, 'partner', 'Đang tải dữ liệu...');
+    setStatus(elements, 'supplier', 'Đang tải dữ liệu...');
 
     Promise.allSettled([
         refreshPartnerData(elements),
@@ -136,17 +136,17 @@ function refreshPartnerData(elements) {
     return fetch(PARTNER_SHEET_CSV_URL, { cache: 'no-store' })
         .then((response) => {
             if (!response.ok) {
-                throw new Error('Khong the tai du lieu doi tac');
+                throw new Error('Không thể tải dữ liệu đối tác');
             }
             return response.text();
         })
         .then((csvText) => {
             const records = parseCsvRecords(csvText, ['ma', 'madoitac', 'code']);
             if (!records.length) {
-                throw new Error('Du lieu doi tac trong');
+                throw new Error('Dữ liệu đối tác trống');
             }
             setPartnerRecords(records, elements);
-            setStatus(elements, 'partner', `Da cap nhat ${records.length} doi tac` );
+            setStatus(elements, 'partner', `Đã cập nhật ${records.length} đối tác` );
 
             if (chrome?.storage?.local) {
                 chrome.storage.local.set({
@@ -159,7 +159,7 @@ function refreshPartnerData(elements) {
         })
         .catch((error) => {
             console.error(error);
-            setStatus(elements, 'partner', 'Tai du lieu doi tac that bai');
+            setStatus(elements, 'partner', 'Tải dữ liệu đối tác thất bại');
         });
 }
 
@@ -167,17 +167,17 @@ function refreshSupplierData(elements) {
     return fetch(SUPPLIER_SHEET_CSV_URL, { cache: 'no-store' })
         .then((response) => {
             if (!response.ok) {
-                throw new Error('Khong the tai du lieu nha cung cap');
+                throw new Error('Không thể tải dữ liệu nhà cung cấp');
             }
             return response.text();
         })
         .then((csvText) => {
             const records = parseCsvRecords(csvText, ['ma', 'manhacungcap', 'code', 'ma nha cung cap', 'ma_nha_cung_cap']);
             if (!records.length) {
-                throw new Error('Du lieu nha cung cap trong');
+                throw new Error('Dữ liệu nhà cung cấp trống');
             }
             setSupplierRecords(records, elements);
-            setStatus(elements, 'supplier', `Da cap nhat ${records.length} nha cung cap` );
+            setStatus(elements, 'supplier', `Đã cập nhật ${records.length} nhà cung cấp` );
 
             if (chrome?.storage?.local) {
                 chrome.storage.local.set({
@@ -190,7 +190,7 @@ function refreshSupplierData(elements) {
         })
         .catch((error) => {
             console.error(error);
-            setStatus(elements, 'supplier', 'Tai du lieu nha cung cap that bai');
+            setStatus(elements, 'supplier', 'Tải dữ liệu nhà cung cấp thất bại');
         });
 }
 
@@ -198,21 +198,21 @@ function fetchLocalPartnerCsv(elements) {
     fetch(PARTNER_CSV_PATH)
         .then((response) => {
             if (!response.ok) {
-                throw new Error('Khong tim thay file doi tac');
+                throw new Error('Không tìm thấy file đối tác');
             }
             return response.text();
         })
         .then((csvText) => {
             const records = parseCsvRecords(csvText, ['ma', 'madoitac', 'code']);
             if (!records.length) {
-                throw new Error('File doi tac trong');
+                throw new Error('File đối tác trống');
             }
             setPartnerRecords(records, elements);
-            setStatus(elements, 'partner', `Da tai tu file noi bo (${records.length} doi tac)` );
+            setStatus(elements, 'partner', `Đã tải từ file nội bộ (${records.length} đối tác)` );
         })
         .catch((error) => {
             console.error(error);
-            setStatus(elements, 'partner', 'Chua co du lieu doi tac');
+            setStatus(elements, 'partner', 'Chưa có dữ liệu đối tác');
         });
 }
 
@@ -220,21 +220,21 @@ function fetchLocalSupplierCsv(elements) {
     fetch(SUPPLIER_CSV_PATH)
         .then((response) => {
             if (!response.ok) {
-                throw new Error('Khong tim thay file nha cung cap');
+                throw new Error('Không tìm thấy file nhà cung cấp');
             }
             return response.text();
         })
         .then((csvText) => {
             const records = parseCsvRecords(csvText, ['ma', 'manhacungcap', 'code', 'ma nha cung cap', 'ma_nha_cung_cap']);
             if (!records.length) {
-                throw new Error('File nha cung cap trong');
+                throw new Error('File nhà cung cấp trống');
             }
             setSupplierRecords(records, elements);
-            setStatus(elements, 'supplier', `Da tai tu file noi bo (${records.length} nha cung cap)` );
+            setStatus(elements, 'supplier', `Đã tải từ file nội bộ (${records.length} nhà cung cấp)` );
         })
         .catch((error) => {
             console.error(error);
-            setStatus(elements, 'supplier', 'Chua co du lieu nha cung cap');
+            setStatus(elements, 'supplier', 'Chưa có dữ liệu nhà cung cấp');
         });
 }
 
@@ -571,17 +571,17 @@ function copyText(elements) {
     const supplierValue = resolveSupplierLabel(elements.supplierInput.value);
 
     if (!caseValue) {
-        alert('Vui l�ng ch?n tru?ng h?p.');
+        alert('Vui lòng chọn trường hợp.');
         return;
     }
 
     if (CASES_WITH_PARTNER.has(caseValue) && !partnerValue) {
-        alert('Vui l�ng nh?p t�n ho?c m� d?i t�c giao h�ng.');
+        alert('Vui lòng nhập tên hoặc mã đối tác giao hàng.');
         return;
     }
 
     if (!activationValue) {
-        alert('Vui l�ng ch?n tr?ng th�i k�ch ho?t.');
+        alert('Vui lòng chọn trạng thái kích hoạt.');
         return;
     }
 
@@ -615,7 +615,7 @@ function copyText(elements) {
 
     const formattedShippingFee = formatShippingFeeForCopy(elements.shippingFee.value.trim());
     if (formattedShippingFee) {
-        parts.push(`Cu?c: ${formattedShippingFee}`);
+        parts.push(`Cước: ${formattedShippingFee}`);
     }
 
     const noteValue = elements.note.value.trim();
@@ -627,7 +627,7 @@ function copyText(elements) {
 
     navigator.clipboard.writeText(textToCopy).then(() => {
     }).catch((error) => {
-        console.error('Kh�ng th? sao ch�p', error);
+        console.error('Không th? sao chép', error);
     });
 }
 
@@ -680,5 +680,5 @@ function formatShippingFeeForInput(rawValue) {
 
 function formatShippingFeeForCopy(rawValue) {
     const formatted = formatShippingFeeForInput(rawValue);
-    return formatted ? `${formatted}?` : '';
+    return formatted ? `${formatted}đ` : '';
 }
