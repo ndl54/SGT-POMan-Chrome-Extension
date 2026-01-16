@@ -93,3 +93,9 @@ powershell -ExecutionPolicy Bypass -File scripts\fetch-doitacgiaohang.ps1
 - Google Chrome
 - Quyền clipboard
 - Quyền storage (để cache dữ liệu đối tác)
+
+## Nha cung cap
+
+- Truong tuy chon, goi y tu `nhacungcap.csv` hoac sheet `Nha_Cung_Cap`.
+- Khi copy, nha cung cap nam sau doi tac giao hang.
+- Nut tai du lieu se cap nhat ca doi tac giao hang va nha cung cap.

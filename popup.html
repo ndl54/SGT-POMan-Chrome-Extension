@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
@@ -10,67 +10,75 @@
     <div class="window-shell">
         <main class="window-body">
             <section class="field field-row">
-                <label for="caseSelect">Trường hợp</label>
+                <label for="caseSelect">Tru?ng h?p</label>
                 <select id="caseSelect">
-                    <option value="">Chọn trường hợp</option>
-                    <option value="case1">Giao vận/đối tác lấy NCC giao khách</option>
-                    <option value="case2">Giao vận/đối tác lấy NCC giao về kho SGT</option>
-                    <option value="case3">NCC giao về kho SGT</option>
-                    <option value="case4">NCC giao tới nhà khách hàng</option>
+                    <option value="">Ch?n tru?ng h?p</option>
+                    <option value="case1">Giao v?n/d?i t�c l?y NCC giao kh�ch</option>
+                    <option value="case2">Giao v?n/d?i t�c l?y NCC giao v? kho SGT</option>
+                    <option value="case3">NCC giao v? kho SGT</option>
+                    <option value="case4">NCC giao t?i nh� kh�ch h�ng</option>
                 </select>
             </section>
 
             <section class="field field-row" id="partnerRow" hidden>
-                <label for="partnerInput">Đối tác giao hàng</label>
+                <label for="partnerInput">D?i t�c giao h�ng</label>
                 <div class="input-stack">
-                    <input type="text" id="partnerInput" list="partnerList" placeholder="Nhập tên hoặc mã đối tác">
+                    <input type="text" id="partnerInput" list="partnerList" placeholder="Nh?p t�n ho?c ma d?i t�c">
                     <datalist id="partnerList"></datalist>
                 </div>
             </section>
 
-            <section class="field field-row">
-                <label for="activationInput">Kích hoạt/Quà tặng</label>
+            <section class="field field-row" id="supplierRow">
+                <label for="supplierInput">Nha cung cap</label>
                 <div class="input-stack">
-                    <input type="text" id="activationInput" list="activationList" placeholder="Chọn trạng thái">
+                    <input type="text" id="supplierInput" list="supplierList" placeholder="Nhap ten hoac ma nha cung cap">
+                    <datalist id="supplierList"></datalist>
+                </div>
+            </section>
+
+            <section class="field field-row">
+                <label for="activationInput">K�ch ho?t/Qu� t?ng</label>
+                <div class="input-stack">
+                    <input type="text" id="activationInput" list="activationList" placeholder="Ch?n tr?ng th�i">
                     <datalist id="activationList">
-                        <option value="Còn Kích"></option>
-                        <option value="Còn Kích, còn Urbox"></option>
-                        <option value="Còn Kích, hết Urbox"></option>
-                        <option value="Hết Kích"></option>
-                        <option value="Hết Kích, hết Urbox"></option>
-                        <option value="Hết Kích, hàng bày"></option>
-                        <option value="Còn Vip/Tích lũy, còn Kích"></option>
-                        <option value="Hết Vip/Tích lũy, còn Kích"></option>
-                        <option value="Không rõ tình trạng Kích"></option>
+                        <option value="C�n K�ch"></option>
+                        <option value="C�n K�ch, c�n Urbox"></option>
+                        <option value="C�n K�ch, h?t Urbox"></option>
+                        <option value="H?t K�ch"></option>
+                        <option value="H?t K�ch, h?t Urbox"></option>
+                        <option value="H?t K�ch, h�ng b�y"></option>
+                        <option value="C�n Vip/T�ch luy, c�n K�ch"></option>
+                        <option value="H?t Vip/T�ch luy, c�n K�ch"></option>
+                        <option value="Kh�ng ro t�nh tr?ng K�ch"></option>
                     </datalist>
                 </div>
             </section>
 
             <section class="field field-row">
-                <label for="shippingFee">Tiền cước (nếu có)</label>
+                <label for="shippingFee">Ti?n cu?c (n?u c�)</label>
                 <div class="currency-input">
                     <input type="text" id="shippingFee" placeholder="0" inputmode="numeric">
-                    <span class="suffix">₫</span>
+                    <span class="suffix">?</span>
                 </div>
             </section>
 
             <section class="field">
-                <label for="note">Ghi chú thêm</label>
-                <textarea id="note" placeholder="Ví dụ: mang loa về kho"></textarea>
+                <label for="note">Ghi ch� th�m</label>
+                <textarea id="note" placeholder="V� d?: mang loa v? kho"></textarea>
             </section>
 
             <section class="field">
-                <label>Dữ liệu đối tác</label>
+                <label>D? li?u d?i t�c</label>
                 <div class="button-stack">
                     <div class="button-row">
-                        <button id="openSheet" class="ghost-button" type="button">Mở Google Sheet</button>
-                        <button id="refreshPartners" class="ghost-button" type="button">Tải dữ liệu mới</button>
+                        <button id="openSheet" class="ghost-button" type="button">M? Google Sheet</button>
+                        <button id="refreshPartners" class="ghost-button" type="button">T?i d? li?u m?i</button>
                     </div>
-                    <span id="dataStatus" class="status-text">Chưa tải dữ liệu</span>
+                    <span id="dataStatus" class="status-text">Chua t?i d? li?u</span>
                 </div>
             </section>
 
-            <button id="copyButton" class="primary-button" type="button">Sao chép</button>
+            <button id="copyButton" class="primary-button" type="button">Sao ch�p</button>
         </main>
     </div>
 

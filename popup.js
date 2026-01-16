@@ -1,14 +1,21 @@
-﻿const SHEET_URL = 'https://docs.google.com/spreadsheets/d/1jjzb4CUl_9iJ9Hlgov7tqqifrRJPojTGkCItJ22PSTk/edit?gid=0#gid=0';
-const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/1jjzb4CUl_9iJ9Hlgov7tqqifrRJPojTGkCItJ22PSTk/export?format=csv&gid=0';
+const SHEET_ID = '1jjzb4CUl_9iJ9Hlgov7tqqifrRJPojTGkCItJ22PSTk';
+const SHEET_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/edit`;
+const PARTNER_SHEET_NAME = 'Doi_Tac_Giao_Hang';
+const SUPPLIER_SHEET_NAME = 'Nha_Cung_Cap';
+const PARTNER_SHEET_CSV_URL = getSheetCsvUrl(PARTNER_SHEET_NAME);
+const SUPPLIER_SHEET_CSV_URL = getSheetCsvUrl(SUPPLIER_SHEET_NAME);
 const PARTNER_CSV_PATH = 'doitacgiaohang.csv';
 const PARTNER_CACHE_KEY = 'partnerCache';
+const SUPPLIER_CSV_PATH = 'nhacungcap.csv';
+const SUPPLIER_CACHE_KEY = 'supplierCache';
 const CASES_WITH_PARTNER = new Set(['case1', 'case2']);
 const PARTNER_SUGGESTION_LIMIT = 80;
+const SUPPLIER_SUGGESTION_LIMIT = 80;
 const CASE_COPY_LABELS = {
-    case1: 'Lấy NCC giao khách',
-    case2: 'Lấy NCC về kho',
-    case3: 'NCC giao về kho',
-    case4: 'NCC giao khách'
+    case1: 'L?y NCC giao kh�ch',
+    case2: 'L?y NCC v? kho',
+    case3: 'NCC giao v? kho',
+    case4: 'NCC giao kh�ch'
 };
 
 let partnerRecords = [];
@@ -18,12 +25,27 @@ let partnerIndex = {
     byName: new Map()
 };
 
+let supplierRecords = [];
+let supplierIndex = {
+    byLabel: new Map(),
+    byCode: new Map(),
+    byName: new Map()
+};
+
+const statusState = {
+    partner: 'Chua tai du lieu doi tac',
+    supplier: 'Chua tai du lieu nha cung cap'
+};
+
 document.addEventListener('DOMContentLoaded', () => {
     const elements = {
         caseSelect: document.getElementById('caseSelect'),
         partnerRow: document.getElementById('partnerRow'),
         partnerInput: document.getElementById('partnerInput'),
         partnerList: document.getElementById('partnerList'),
+        supplierRow: document.getElementById('supplierRow'),
+        supplierInput: document.getElementById('supplierInput'),
+        supplierList: document.getElementById('supplierList'),
         activationInput: document.getElementById('activationInput'),
         shippingFee: document.getElementById('shippingFee'),
         note: document.getElementById('note'),
@@ -33,28 +55,22 @@ document.addEventListener('DOMContentLoaded', () => {
         dataStatus: document.getElementById('dataStatus')
     };
 
+    setStatus(elements, 'partner', statusState.partner);
+    setStatus(elements, 'supplier', statusState.supplier);
+
     elements.caseSelect.addEventListener('change', () => handleCaseChange(elements));
     elements.partnerInput.addEventListener('input', () => handlePartnerInput(elements));
+    elements.supplierInput.addEventListener('input', () => handleSupplierInput(elements));
     elements.copyButton.addEventListener('click', () => copyText(elements));
-    elements.refreshButton.addEventListener('click', () => refreshPartnerData(elements));
+    elements.refreshButton.addEventListener('click', () => refreshAllData(elements));
     elements.openSheetButton.addEventListener('click', openSheet);
 
     handleCaseChange(elements);
     setupShippingFeeInput(elements.shippingFee);
-    loadPartnerData(elements);
+    loadAllData(elements);
 });
 
-function handleCaseChange(elements) {
-    const caseValue = elements.caseSelect.value;
-    const canSelectPartner = CASES_WITH_PARTNER.has(caseValue);
-    elements.partnerRow.hidden = false;
-    elements.partnerInput.disabled = !canSelectPartner;
 
-    if (!canSelectPartner) {
-        elements.partnerInput.value = '';
-        elements.partnerList.innerHTML = '';
-    }
-}
 
 function handlePartnerInput(elements) {
     if (elements.partnerInput.disabled) {
@@ -63,9 +79,14 @@ function handlePartnerInput(elements) {
     }
     renderPartnerOptions(elements.partnerList, partnerRecords, elements.partnerInput.value);
 }
+function setStatus(elements, key, message) {
+    statusState[key] = message;
+    elements.dataStatus.textContent = `Doi tac: ${statusState.partner} | Nha cung cap: ${statusState.supplier}`;
+}
 
-function openSheet() {
-    window.open(SHEET_URL, '_blank', 'noopener');
+function loadAllData(elements) {
+    loadPartnerData(elements);
+    loadSupplierData(elements);
 }
 
 function loadPartnerData(elements) {
@@ -74,33 +95,58 @@ function loadPartnerData(elements) {
             const cache = result[PARTNER_CACHE_KEY];
             if (cache?.records?.length) {
                 setPartnerRecords(cache.records, elements);
-                updateStatus(elements, `Đã tải dữ liệu (cache ${formatTimestamp(cache.fetchedAt)})`);
+                setStatus(elements, 'partner', `Da tai du lieu doi tac (cache ${formatTimestamp(cache.fetchedAt)})` );
             } else {
-                fetchLocalCsv(elements);
+                fetchLocalPartnerCsv(elements);
             }
         });
     } else {
-        fetchLocalCsv(elements);
+        fetchLocalPartnerCsv(elements);
     }
 }
 
-function refreshPartnerData(elements) {
-    updateStatus(elements, 'Đang tải dữ liệu...');
+function loadSupplierData(elements) {
+    if (chrome?.storage?.local) {
+        chrome.storage.local.get(SUPPLIER_CACHE_KEY, (result) => {
+            const cache = result[SUPPLIER_CACHE_KEY];
+            if (cache?.records?.length) {
+                setSupplierRecords(cache.records, elements);
+                setStatus(elements, 'supplier', `Da tai du lieu nha cung cap (cache ${formatTimestamp(cache.fetchedAt)})` );
+            } else {
+                fetchLocalSupplierCsv(elements);
+            }
+        });
+    } else {
+        fetchLocalSupplierCsv(elements);
+    }
+}
 
-    fetch(SHEET_CSV_URL, { cache: 'no-store' })
+function refreshAllData(elements) {
+    setStatus(elements, 'partner', 'Dang tai du lieu...');
+    setStatus(elements, 'supplier', 'Dang tai du lieu...');
+
+    Promise.allSettled([
+        refreshPartnerData(elements),
+        refreshSupplierData(elements)
+    ]).then(() => {
+    });
+}
+
+function refreshPartnerData(elements) {
+    return fetch(PARTNER_SHEET_CSV_URL, { cache: 'no-store' })
         .then((response) => {
             if (!response.ok) {
-                throw new Error('Không thể tải dữ liệu từ Google Sheet');
+                throw new Error('Khong the tai du lieu doi tac');
             }
             return response.text();
         })
         .then((csvText) => {
-            const records = parsePartnerCsv(csvText);
+            const records = parseCsvRecords(csvText, ['ma', 'madoitac', 'code']);
             if (!records.length) {
-                throw new Error('Dữ liệu đối tác trống');
+                throw new Error('Du lieu doi tac trong');
             }
             setPartnerRecords(records, elements);
-            updateStatus(elements, `Đã cập nhật ${records.length} đối tác`);
+            setStatus(elements, 'partner', `Da cap nhat ${records.length} doi tac` );
 
             if (chrome?.storage?.local) {
                 chrome.storage.local.set({
@@ -113,29 +159,82 @@ function refreshPartnerData(elements) {
         })
         .catch((error) => {
             console.error(error);
-            updateStatus(elements, 'Tải dữ liệu thất bại');
+            setStatus(elements, 'partner', 'Tai du lieu doi tac that bai');
         });
 }
 
-function fetchLocalCsv(elements) {
-    fetch(PARTNER_CSV_PATH)
+function refreshSupplierData(elements) {
+    return fetch(SUPPLIER_SHEET_CSV_URL, { cache: 'no-store' })
         .then((response) => {
             if (!response.ok) {
-                throw new Error('Không tìm thấy file đối tác');
+                throw new Error('Khong the tai du lieu nha cung cap');
             }
             return response.text();
         })
         .then((csvText) => {
-            const records = parsePartnerCsv(csvText);
+            const records = parseCsvRecords(csvText, ['ma', 'manhacungcap', 'code', 'ma nha cung cap', 'ma_nha_cung_cap']);
             if (!records.length) {
-                throw new Error('File đối tác trống');
+                throw new Error('Du lieu nha cung cap trong');
             }
-            setPartnerRecords(records, elements);
-            updateStatus(elements, `Đã tải từ file nội bộ (${records.length} đối tác)`);
+            setSupplierRecords(records, elements);
+            setStatus(elements, 'supplier', `Da cap nhat ${records.length} nha cung cap` );
+
+            if (chrome?.storage?.local) {
+                chrome.storage.local.set({
+                    [SUPPLIER_CACHE_KEY]: {
+                        fetchedAt: Date.now(),
+                        records
+                    }
+                });
+            }
         })
         .catch((error) => {
             console.error(error);
-            updateStatus(elements, 'Chưa có dữ liệu đối tác');
+            setStatus(elements, 'supplier', 'Tai du lieu nha cung cap that bai');
+        });
+}
+
+function fetchLocalPartnerCsv(elements) {
+    fetch(PARTNER_CSV_PATH)
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error('Khong tim thay file doi tac');
+            }
+            return response.text();
+        })
+        .then((csvText) => {
+            const records = parseCsvRecords(csvText, ['ma', 'madoitac', 'code']);
+            if (!records.length) {
+                throw new Error('File doi tac trong');
+            }
+            setPartnerRecords(records, elements);
+            setStatus(elements, 'partner', `Da tai tu file noi bo (${records.length} doi tac)` );
+        })
+        .catch((error) => {
+            console.error(error);
+            setStatus(elements, 'partner', 'Chua co du lieu doi tac');
+        });
+}
+
+function fetchLocalSupplierCsv(elements) {
+    fetch(SUPPLIER_CSV_PATH)
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error('Khong tim thay file nha cung cap');
+            }
+            return response.text();
+        })
+        .then((csvText) => {
+            const records = parseCsvRecords(csvText, ['ma', 'manhacungcap', 'code', 'ma nha cung cap', 'ma_nha_cung_cap']);
+            if (!records.length) {
+                throw new Error('File nha cung cap trong');
+            }
+            setSupplierRecords(records, elements);
+            setStatus(elements, 'supplier', `Da tai tu file noi bo (${records.length} nha cung cap)` );
+        })
+        .catch((error) => {
+            console.error(error);
+            setStatus(elements, 'supplier', 'Chua co du lieu nha cung cap');
         });
 }
 
@@ -173,15 +272,49 @@ function buildPartnerIndex(records) {
     });
 }
 
-function renderPartnerOptions(listElement, records, inputValue) {
+
+function setSupplierRecords(records, elements) {
+    supplierRecords = records.map((record) => ({
+        ...record,
+        normalizedCode: normalize(record.code),
+        normalizedName: normalize(record.name),
+        label: `${record.name} [${record.code}]`,
+        labelNormalized: normalize(`${record.name} [${record.code}]`)
+    }));
+    buildSupplierIndex(records);
+    renderSupplierOptions(elements.supplierList, supplierRecords, elements.supplierInput.value);
+}
+
+function buildSupplierIndex(records) {
+    supplierIndex = {
+        byLabel: new Map(),
+        byCode: new Map(),
+        byName: new Map()
+    };
+
+    records.forEach((record) => {
+        const label = `${record.name} [${record.code}]`;
+        const labelKey = normalize(label);
+        const codeKey = normalize(record.code);
+        const nameKey = normalize(record.name);
+
+        supplierIndex.byLabel.set(labelKey, label);
+        supplierIndex.byCode.set(codeKey, label);
+        if (!supplierIndex.byName.has(nameKey)) {
+            supplierIndex.byName.set(nameKey, label);
+        }
+    });
+}
+
+function renderSupplierOptions(listElement, records, inputValue) {
     const normalizedInput = normalize(inputValue || '');
     listElement.innerHTML = '';
     if (!normalizedInput) {
         return;
     }
 
-    const matches = getPartnerMatches(records, normalizedInput)
-        .slice(0, PARTNER_SUGGESTION_LIMIT);
+    const matches = getSupplierMatches(records, normalizedInput)
+        .slice(0, SUPPLIER_SUGGESTION_LIMIT);
 
     const fragment = document.createDocumentFragment();
 
@@ -194,7 +327,83 @@ function renderPartnerOptions(listElement, records, inputValue) {
     listElement.appendChild(fragment);
 }
 
-function parsePartnerCsv(csvText) {
+function getSupplierMatches(records, normalizedInput) {
+    if (!normalizedInput) {
+        return [];
+    }
+
+    return records.filter((record) => {
+        if (record.normalizedCode.includes(normalizedInput)) {
+            return true;
+        }
+
+        if (record.normalizedName.includes(normalizedInput)) {
+            return true;
+        }
+
+        if (record.labelNormalized.includes(normalizedInput)) {
+            return true;
+        }
+
+        return false;
+    }).sort((a, b) => scoreSupplierMatch(b, normalizedInput) - scoreSupplierMatch(a, normalizedInput));
+}
+
+function scoreSupplierMatch(record, normalizedInput) {
+    let score = 0;
+
+    if (record.labelNormalized === normalizedInput) {
+        score += 12;
+    }
+
+    if (record.normalizedCode === normalizedInput) {
+        score += 10;
+    }
+
+    if (record.normalizedName === normalizedInput) {
+        score += 8;
+    }
+
+    if (record.normalizedName.includes(normalizedInput)) {
+        score += 4;
+    }
+
+    if (record.normalizedCode.includes(normalizedInput)) {
+        score += 4;
+    }
+
+    return score;
+}
+
+function resolveSupplierLabel(inputValue) {
+    const trimmed = inputValue.trim();
+    if (!trimmed) {
+        return '';
+    }
+
+    const normalized = normalize(trimmed);
+
+    if (supplierIndex.byLabel.has(normalized)) {
+        return supplierIndex.byLabel.get(normalized);
+    }
+
+    if (supplierIndex.byCode.has(normalized)) {
+        return supplierIndex.byCode.get(normalized);
+    }
+
+    if (supplierIndex.byName.has(normalized)) {
+        return supplierIndex.byName.get(normalized);
+    }
+
+    const matches = getSupplierMatches(supplierRecords, normalized);
+    if (matches.length > 0) {
+        return matches[0].label;
+    }
+
+    return trimmed;
+}
+
+function parseCsvRecords(csvText, codeHeaders) {
     const lines = csvText.split(/\r?\n/).filter((line) => line.trim().length > 0);
     const records = [];
 
@@ -212,7 +421,7 @@ function parsePartnerCsv(csvText) {
 
         const normalizedCode = normalize(code);
         const normalizedName = normalize(name);
-        const isHeader = index === 0 && (normalizedCode === 'ma' || normalizedCode === 'madoitac' || normalizedCode === 'code') && normalizedName.includes('ten');
+        const isHeader = index === 0 && codeHeaders.includes(normalizedCode) && normalizedName.includes('ten');
 
         if (isHeader) {
             return;
@@ -359,19 +568,20 @@ function copyText(elements) {
     const caseLabel = CASE_COPY_LABELS[caseValue] || '';
     const activationValue = elements.activationInput.value.trim();
     const partnerValue = resolvePartnerLabel(elements.partnerInput.value);
+    const supplierValue = resolveSupplierLabel(elements.supplierInput.value);
 
     if (!caseValue) {
-        alert('Vui lòng chọn trường hợp.');
+        alert('Vui l�ng ch?n tru?ng h?p.');
         return;
     }
 
     if (CASES_WITH_PARTNER.has(caseValue) && !partnerValue) {
-        alert('Vui lòng nhập tên hoặc mã đối tác giao hàng.');
+        alert('Vui l�ng nh?p t�n ho?c m� d?i t�c giao h�ng.');
         return;
     }
 
     if (!activationValue) {
-        alert('Vui lòng chọn trạng thái kích hoạt.');
+        alert('Vui l�ng ch?n tr?ng th�i k�ch ho?t.');
         return;
     }
 
@@ -380,6 +590,9 @@ function copyText(elements) {
     if (CASES_WITH_PARTNER.has(caseValue)) {
         if (partnerValue) {
             parts.push(partnerValue);
+        }
+        if (supplierValue) {
+            parts.push(supplierValue);
         }
         if (caseLabel) {
             parts.push(caseLabel);
@@ -391,6 +604,9 @@ function copyText(elements) {
         if (partnerValue) {
             parts.push(partnerValue);
         }
+        if (supplierValue) {
+            parts.push(supplierValue);
+        }
     }
 
     if (activationValue) {
@@ -399,7 +615,7 @@ function copyText(elements) {
 
     const formattedShippingFee = formatShippingFeeForCopy(elements.shippingFee.value.trim());
     if (formattedShippingFee) {
-        parts.push(`Cước: ${formattedShippingFee}`);
+        parts.push(`Cu?c: ${formattedShippingFee}`);
     }
 
     const noteValue = elements.note.value.trim();
@@ -411,13 +627,11 @@ function copyText(elements) {
 
     navigator.clipboard.writeText(textToCopy).then(() => {
     }).catch((error) => {
-        console.error('Không thể sao chép', error);
+        console.error('Kh�ng th? sao ch�p', error);
     });
 }
 
-function updateStatus(elements, message) {
-    elements.dataStatus.textContent = message;
-}
+
 
 function formatTimestamp(timestamp) {
     if (!timestamp) {
@@ -466,5 +680,5 @@ function formatShippingFeeForInput(rawValue) {
 
 function formatShippingFeeForCopy(rawValue) {
     const formatted = formatShippingFeeForInput(rawValue);
-    return formatted ? `${formatted}₫` : '';
+    return formatted ? `${formatted}?` : '';
 }
