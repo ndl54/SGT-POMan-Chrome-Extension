@@ -1,581 +1,297 @@
-Mã đối tác,Tên đối tác
-DT000604,Công Minh + Quang Minh + Lalamove
-DT000603,Anh Lưu + Khanh
-DT000602,.
-DT000601,Giao vận Test
-DT000600,Đạt kho +  Lalamove
-DT000599,Việt Anh + xe ghép đi tỉnh
-DT000598,Anh Lưu + Khởi + Tỉnh + Xe tải SGT
-DT000597,Anh Phong + Trung + Lalamove
-DT000596,Anh Phong + Đoan + Quang Minh + Chính
-DT000595,Khanh + Tỉnh
-DT000594,Khanh + Chính + Lalamove
-DT000593,Quang Minh + xe ghép đi tỉnh
-DT000592,Anh Phong + Đoan + Quang Minh + Công Minh
-DT000591,Anh Lưu + Khanh + Lalamove
-DT000590,Khanh + Quang Minh
-DT000589,Quang Minh + Hưng kho + Lalamove
-DT000588,Anh Lưu + Khởi + Khanh + Tỉnh + NCC
-DT000587,A Lưu + Khởi + Quang Minh + Tỉnh + NCC giao
-DT000586,Anh Giang + Trung
-DT000585,Đoan + Khanh
-DT000584,Tâm lái xe tải + xe ghép đi tỉnh
-DT000583,Khởi + Khanh
-DT000582,Anh Giang + Khanh
-DT000581,Đoan + Chính + Tâm lái xe tải
-DT000580,Anh Phong + Quang Minh + Công Minh
-DT000579,Anh Lưu + Chính + Tâm lái xe tải
-DT000578,Quang Minh + Trung + Lalamove
-DT000577,Quang Minh + Huy + Tâm lái xe tải
-DT000576,Anh Phong + Khanh
-DT000575,Trung + Tâm lái xe tải
-DT000574,Chính + Nhất tín
-DT000573,Chính + Nhất tín
-DT000572,Chính + NCC
-DT000571,Quang Minh + Tỉnh + Lalamove
-DT000570,Khanh + Khởi
-DT000569,Khanh + Quang Minh + Lalamove
-DT000568,Anh Phong + Tâm lái xe
-DT000567,Trung + xe ghép đi tỉnh
-DT000566,Trung + xe ghép đi tỉnh
-DT000565,Khanh + Khởi + Lalamove
-DT000564,Đoan + Tâm lái xe tải
-DT000563,Đoan + Tâm lái xe tải
-DT000562,Anh Lưu + Khởi
-DT000561,Công Minh + Quang Minh
-DT000560,Anh Phong + Quang Minh + Tâm lái xe
-DT000559,Khanh + Công Minh
-DT000557,Đoan + Khanh + Tâm lái xe tải
-DT000558,Đoan + Khanh + Tâm lái xe tải
-DT000556,Tâm + Nhất Tín
-DT000555,Đoan + Tỉnh + Quang Minh
-DT000554,Anh Phong + Chính
-DT000553,Khanh + Trung
-DT000552,Khanh + Trung
-DT000551,Khanh + Trung
-DT000550,Khanh + Trung
-DT000549,Khanh + Trung
-DT000548,Trung + Công Minh
-DT000547,Công Minh + Tỉnh
-DT000546,Khanh + Chính + Tâm xe tải
-DT000545,Khanh + Tỉnh + Lalamove
-DT000544,Tỉnh + Quang Minh
-DT000543,Khanh + Trung + Công Minh
-DT000542,Công Minh + Quang Minh + Trung + Tâm lái xe tải
-DT000541,Khanh + Việt điều hòa
-DT000540,Tâm lái xe + Lalamove
-DT000539,Anh Giang + Tâm lái xe Tải
-DT000538,A Lưu + Tâm lái xe tải
-DT000537,Quang Minh + Tâm lái xe tải
-DT000536,Chính + Tâm lái xe tải
-DT000535,Anh Lưu + Khanh + Chính
-DT000534,Khanh + Xe tải SGT
-DT000533,Anh Phong + Công Minh + Lalamove
-DT000532,Anh Phong + Công Minh + Lalamove
-DT000531,Anh Phong + Công Minh + Lalamove
-DT000530,Anh Giang + Công Minh + Lalamove
-DT000529,Chính + Xe tải SGT
-DT000528,Trung + Khanh
-DT000526,Chính + Công Minh + xe tải SGT
-DT000527,Chính + Công Minh + xe tải SGT
-DT000525,Anh Giang + Khởi + Xe Tải SGT
-DT000524,Tỉnh + Tâm giao vận xe tải
-DT000523,Tâm Giao Vận xe tải
-DT000522,Khởi + xe tải SGT
-DT000521,Công Minh + Xe tải SGT
-DT000520,Đoan + Khanh + Lalamove
-DT000519,Anh Lưu + Tỉnh + Trung + Công Minh + Quang Minh
-DT000518,Khởi + Quang Minh
-DT000517,Trung + Khanh + Lalamove
-DT000516,Khanh + Lalamove
-DT000515,Anh Giang + Quang Minh + Lalamove
-DT000514,Anh Lưu + Chính + Lalamove
-DT000513,Khởi + Công Minh + Lalamove
-DT000512,Chính + Quang Minh + lalamove
-DT000511,Khanh Giao Vận
-DT000510,Anh Giang + Khanh + Lalamove
-DT000509,Lalamove Anh Hưng + Xe ghép đi tỉnh
-DT000508,Anh Phong + Công Minh
-DT000507,Khởi + Trung + lalamove
-DT000506,Chính + Tỉnh + Trung + Khởi
-DT000505,Lưu + Tỉnh + Trung + Khởi
-DT000504,Chính + Quang Minh
-DT000503,Tỉnh + Công Minh
-DT000502,Đoan + Trung
-DT000501,Chính + Công Minh + Lalalmove
-DT000500,Anh Giang + Quang Minh
-DT000499,Anh Lưu + Quang Minh
-DT000498,Anh Lưu + Công Minh + Lalamove
-DT000497,Đoan + Quang Minh
-DT000496,Đoan + Công Minh
-DT000495,Công Minh + Lalamove
-DT000494,Khởi + Chính + Lalamove
-DT000493,Anh Lưu + Quang Minh + Lalamove
-DT000492,Công Minh + Nhất Tín
-DT000491,Công Minh giao vận
-DT000490,Đoan + Công Minh + Lalamove
-DT000489,Anh Phong + Quang Minh
-DT000488,Anh Lưu + Công Minh
-DT000487,Anh Lưu + Công Minh
-DT000486,Quang Minh + Công Minh
-DT000485,Đoan + Quang Minh + Lalamove
-DT000484,Trung + Nhất Tín
-DT000483,Chính + Công Minh
-DT000482,Anh Phong + Anh Giang
-DT000481,Trung + Tỉnh
-DT000480,A Phong + Chính + Lalamove
-DT000479,Đoan + Trung + Lalamove
-DT000478,A Giang + Chính + Lalamove
-DT000477,Khởi + Chính
-DT000476,A Lưu + Trung + Lalamove
-DT000475,Anh Phong + Trung
-DT000474,Quang Minh + Trung
-DT000473,Anh Lưu + A Phong + Đoan
-DT000472,Đoan + Chính
-DT000471,A Lưu + A Giang
-DT000470,Khởi + Trung
-DT000469,A Lưu + Quang Minh
-DT000468,A Giang + Chính
-DT000467,Anh Giang + Công Minh
-DT000466,Quang Minh + Lalamove
-DT000465,Quang Minh + Nhất Tín
-DT000464,A Lưu + Khởi + Trung + Lalamove
-DT000463,Chính + Minh + Lalamove
-DT000462,Quang Minh + Chính + Lalamove
-DT000461,Quang Minh giao vận
-DT000460,Minh + Trung
-DT000459,Anh Lưu + Trung + Lalamove
-DT000458,Chính + Tỉnh + Lalamove
-DT000457,Anh Lưu + Trung
-DT000456,Trung + Lalamove
-DT000455,Minh + Nhất Tín
-DT000454,Chính + Trung
-DT000453,Anh Minh
-DT000452,Anh Trung
-DT000451,Anh Chính
-DT000450,Tỉnh + Trung
-DT000449,Anh Lưu + Chính
-DT000448,Anh Giang + Trung + Lalamove
-DT000447,Anh Lưu  + Chính + Lalamove
-DT000446,Minh + Lalamove
-DT000445,Anh Lưu + Minh + Lalamove
-DT000444,Đoan + Minh + Lalamove
-DT000443,Trung giao vận
-DT000442,Chính + Lalamove
-DT000441,Chính giao vận
-DT000440,Đoan + Minh
-DT000439,A Lưu + Thắng
-DT000438,Anh Lưu + Thắng + Lalamove
-DT000437,Ship Tú - Thuê Ngoài
-DT000436,A Giang + Khởi
-DT000435,Đoan + a Phong + lalamove
-DT000434,Minh Giao vận
-DT000433,Minh Giao vận
-DT000432,Lalamove anh Hưng + Nhất Tín
-DT000431,A Lưu + Khởi + Lalamove
-DT000430,Thiện giao vận
-DT000429,A Phong + Khởi + Lalamove
-DT000428,A Giang + Nhất Tín
-DT000427,Tỉnh + Khởi + Lalmove
-DT000426,Minh sale
-DT000425,Đoan + Nhất Tín
-DT000424,A Phong + A Giang + Lalamove
-DT000423,Anh Giang + Anh Phong + lalamove
-DT000422,Ahamove
-DT000421,Sỹ điều hoà
-DT000420,A Phong + Xe ghép đi tỉnh
-DT000419,Xe ghép đi tỉnh + thuê ĐMX lắp
-DT000418,A Hưng lalamove
-DT000417,A Giang + Tỉnh + Lalamove
-DT000416,Phong + Tỉnh
-DT000415,Nghiêm điều hoà
-DT000414,Khởi
-DT000413,A Tỉnh
-DT000412,A Giang
-DT000411,A Phong
-DT000410,A Lưu
-DT000409,Thuê ĐMX
-DT000408,Lalamove + anh Mạnh ship ngoài
-DT000407,A Phong + A Lưu + Đoan + Lalamove
-DT000406,A Phong + A Lưu + Đoan + Lalamove
-DT000405,A Giang + Đoan + Lalamove
-DT000404,A Giang + Đoan + Lalamove
-DT000403,A Phong + Tỉnh + Lalamove
-DT000402,A Phong + Tỉnh + Lalamove
-DT000401,Tỉnh + Nhất Tín
-DT000400,Đoan + NCC
-DT000399,Đoan + GHTK
-DT000398,Việt Điều Hòa
-DT000397,Anh Giang + Nhà xe Hà Lan
-DT000396,A Giang + GHTK
-DT000395,A Phong + GHTK
-DT000394,Tỉnh + NCC
-DT000393,Anh Thư Điều Hòa
-DT000392,Tỉnh + GHTK
-DT000391,Khởi + GHTK
-DT000390,Huy + GHTK
-DT000389,Khởi + Lưu + Lalamove
-DT000388,Anh Tuấn + Anh Phong + Lalamove
-DT000387,A Phong + Đại
-DT000386,A Lưu + Huy + NCC
-DT000385,Tỉnh + Khách qua kho bốc
-DT000384,Bằng + Đoan
-DT000383,A Tuấn + Khởi
-DT000382,A Lưu + Huy + Lalamove
-DT000381,Bằng + Khởi + Lalamove
-DT000380,Bằng + Khởi + Lalamove
-DT000379,A Phong + Khởi
-DT000378,A Giang + xe ghép đi tỉnh
-DT000377,A Huy + A Tỉnh
-DT000376,A Lưu + A Bằng + Lalamove
-DT000375,anh Tuấn + Nhất Tín
-DT000374,A Phong + Tỉnh
-DT000373,Anh Tuấn + Bằng
-DT000372,A Tuấn + A Bằng + Lalamove
-DT000371,A Phong + Nhất tín
-DT000370,A Lưu + NCC
-DT000369,A Lưu + NCC
-DT000368,A Giang + Bằng + Lalamove
-DT000367,A Lưu + Tỉnh
-DT000366,A Khởi + A Phong + Lalamove
-DT000365,Đoan + Tỉnh
-DT000364,Đoan + Tỉnh
-DT000363,A Phong + Đoan
-DT000362,A Tuấn + A Phong
-DT000361,A Lưu + A Đại
-DT000360,A Lưu + A Đại
-DT000359,A Tuấn + Huy + Đoan + Lalamove
-DT000358,Khởi + Huy + Bằng + Lalamove
-DT000357,A Tuấn + A Lưu + Huy + Lalamove
-DT000356,A Phong + Huy + Lalamove
-DT000355,A Lưu + Đại + Tỉnh + Lalamove
-DT000354,A Tuấn + Bằng + Lalamove
-DT000353,A Phong + Lalamove
-DT000352,A Phong + Đoan + Lalamove
-DT000351,A Phong + Bằng + Lalamove
-DT000350,Anh Lưu + Đại
-DT000349,A Lưu + A Phong + Lalamove
-DT000348,Đại + Khởi + Lalamove
-DT000347,Đại + Khởi + Lalamove
-DT000346,A Phong giao vận
-DT000345,Anh Lưu + Đại + Bằng + Lalamove
-DT000344,A Tuấn + A Khởi+ a Lưu + lalamove
-DT000343,A Lưu + A Phong
-DT000342,Anh Tuấn + Khởi + Lalamove
-DT000341,Huy + Nhất Tín
-DT000340,a Hưng sale + lala
-DT000339,Khởi + Nhất Tín
-DT000338,A Lưu + Đại + Lalamove
-DT000337,Đại + Nhất Tín
-DT000336,A Giang + Đại + Lalamove
-DT000335,Bằng + Khởi
-DT000334,Bằng + Nhất Tín
-DT000333,A Lưu + Huy
-DT000332,Đại + Huy
-DT000331,Anh Giang + Huy + Lalamove
-DT000330,A Tỉnh + Xe ghép đi tỉnh
-DT000329,Đại + Khởi
-DT000328,Anh Lưu + Huy
-DT000327,sale Việt Anh
-DT000326,A Huy + Nhất Tín
-DT000325,A Lưu + Đoan + Lalamove
-DT000324,Vận chuyển Netco
-DT000323,Tỉnh + Đại + lalamove
-DT000322,Đoan + Lalamove + Xe ghép đi tỉnh
-DT000321,Tỉnh + Đại
-DT000320,Anh Lưu + Khởi + Lalamove
-DT000319,Anh Lưu + Đoan
-DT000318,Đại + Huy + Lalamove
-DT000317,Anh Tú + xe ghép đi tỉnh
-DT000316,Tỉnh + Đoan
-DT000315,Anh Tú + Đại + Lalamove
-DT000314,Đoan + Huy + Lalamove
-DT000313,Đoan + Huy + Lalamove
-DT000312,Anh Lưu + Đại + Lalamove
-DT000311,Đoan + Huy
-DT000310,A Tuấn + Nhất Tín
-DT000309,Lalamove Anh Cường
-DT000308,Anh Tú + Anh Lưu + Đoan + Lalamove
-DT000307,A Tuấn + A Giang + lalamove
-DT000306,A Lưu + Tỉnh + Lalamove
-DT000305,Anh Giang + Tỉnh + Lalamove
-DT000304,Anh Giang + Tỉnh
-DT000303,Anh Lưu + Tỉnh
-DT000302,Đoan + Tỉnh + Lalamove
-DT000301,A Tuấn + Tỉnh + A Đoan + lalamove
-DT000300,Anh Tuấn + Đoan + Huy + Tỉnh + Lalamove
-DT000299,Anh Lưu + Đại + Đoan + Lalamove
-DT000298,Huy + Tỉnh + Lalamove
-DT000297,Huy + Tỉnh
-DT000296,Anh Trường + Lalamove
-DT000295,Bằng + Tỉnh + Lalamove
-DT000294,Anh Tú + Đoan + Lalamove
-DT000293,Anh Lưu + Bằng + Khởi
-DT000292,A Giang + Đại
-DT000291,A Lưu + A Giang + Bằng + Khởi
-DT000290,Khởi + A Lưu
-DT000289,Khởi + Đoan
-DT000288,Anh Tuấn + Huy
-DT000287,Bằng + Tỉnh
-DT000286,A Lưu +  A Giang + Khởi + Lalamove
-DT000285,A Giang + A Tuấn + lalamove
-DT000284,A Lưu + Xe ghép đi tỉnh
-DT000283,Khởi + Tỉnh
-DT000282,A Đoan + A Bằng + Lalamove
-DT000281,Khởi + Tỉnh + Lalmove
-DT000280,A Lưu + A Giang + Bằng + Lalamove
-DT000279,A Lưu + Bằng
-DT000278,A Lưu + Bằng + Lalamove
-DT000277,A Giang + Đoan + Khởi + Tỉnh + Lalamove
-DT000276,Bằng + Huy + Lalamove
-DT000275,A Tú + Đại
-DT000274,Huy + Đoan
-DT000273,A Huy + xe ghép đi tỉnh
-DT000272,A Tuấn + A Giang + Khởi + Huy + Lalamove
-DT000271,A Huy + NCC
-DT000270,A Tuấn + Tỉnh + lalamove
-DT000269,Tỉnh + xe ghép đi tỉnh
-DT000268,A Bằng + lalamove
-DT000267,A Tuấn + Tỉnh
-DT000266,Bằng + Lalamove
-DT000265,A Huy + lalamove
-DT000264,A Tú + A Tỉnh + Lalamove
-DT000263,Xe ghép đi tỉnh + Anh Lưu GV
-DT000262,NCC + Anh Tú
-DT000261,A Tỉnh + lalamove
-DT000260,A Giang + A Lưu + Lalamove
-DT000259,A Giang + A Lưu
-DT000258,A Tuấn + A Lưu
-DT000257,ĐẠI + BẰNG + LALAMOVE
-DT000256,Đại + Bằng
-DT000255,A Lưu +lalamove
-DT000254,A Tỉnh giao vận
-DT000253,A Lưu giao vận
-DT000252,A Tú + A Bằng
-DT000251,Khởi + Đoan + lalamove
-DT000250,A Huy
-DT000249,Khởi + Huy + lalamove
-DT000248,A Tuấn + Huy + Lalamove
-DT000247,Khởi + Huy
-DT000246,a Tú + a Bằng + lalamove
-DT000245,E Bằng
-DT000244,Anh Đại + Xe ghép đi tỉnh
-DT000243,Lalamove A Ngọc
-DT000242,Đoan + Xe ghép đi tỉnh
-DT000241,Anh Giang + xe ghép đi tỉnh
-DT000240,SHIP THỌ
-DT000239,A Tú + Đại
-DT000238,Khởi + xe ghép đi tỉnh
-DT000237,.
-DT000236,A Tú + Đoan
-DT000235,Lalamove + Anh Sơn Trẻ
-DT000234,Lalamove Anh Hưng
-DT000233,Lalamove Ngọc
-DT000232,Khởi + Đại
-DT000231,A Giang + Khởi + lalamove
-DT000230,A Tuấn + Đoan + lalamove
-DT000229,Khởi + Đại + lalamove
-DT000228,A Tuấn + Đoan
-DT000227,A Tuấn + A Giang
-DT000226,Đại + Đoan + lalamove
-DT000225,Đại + Đoan
-DT000224,Hưng sales
-DT000223,A Giang + Đoan
-DT000222,Tuấn Anh Sales
-DT000221,Đoan + lalamove
-DT000220,A Giang + A Tú + lalmove
-DT000219,Khởi + NCC
-DT000218,A Tú + Đại + lalamove
-DT000217,Đại + Lalamove
-DT000216,A Giang + A Đoan + lalamove
-DT000215,A Tuấn + A Đại + lalamove
-DT000214,A Đại giao vận
-DT000213,Lalamove + Đoan
-DT000212,Đoan giao vận
-NCC + Khởi,NCC + Khởi
-DT000211,A Giang + lalamove
-DT000210,Khởi + A Giang
-DT000209,A Giang giao vận
-DT000208,Toàn điều hoà
-DT000207,Lalamove + anh Tú ship ngoài
-DT000206,Lalamove + Thọ + anh Tuấn + Khởi
-DT000205,Anh Tú Ship ngoài
-DT000204,Khởi + Xe ghép đi tỉnh
-DT000203,A Tú điều hoà
-DT000202,A Khởi điều hoà
-DT000201,Tú + Khởi + lalamove
-DT000200,Khởi + Thọ
-DT000199,Khởi + A Tuấn
-DT000198,Sale Hưng
-DT000197,Anh Tú + Khởi + Lalamove
-DT000196,Điện máy chợ lớn
-DT000195,A Tuấn + A Tú + lalamove
-DT000194,A Tú + Khởi
-DT000193,A Tuấn + A Tú
-DT000192,Nhi sales
-DT000191,Sales Đạt
-DT000190,Khởi + lalamove
-DT000189,Khởi giao vận
-DT000188,Lalamove + Anh Tuấn + Thọ
-DT000187,thọ+a tú
-DT000186,A Tuấn + A Văn Anh
-DT000185,Anh Tú + Tiệp
-DT000184,A Dũng + A Tiệp
-DT000183,Anh Tuấn + Dũng GHLĐ + Lalamove
-DT000182,Sales Mạnh
-DT000181,Dũng GHLĐ
-DT000180,A Tuấn + Tiệp + A Tú + A Dũng
-Lalamove + anh Dũng,Lalamove + anh Dũng
-DT000179,NCC giao thẳng cho khách
-DT000178,Sỹ Điều Hòa
-DT000177,Anh Tú + Thọ
-DT000176,Anh Tuấn + Xe Ghép đi tỉnh
-DT000175,Sales Huyền
-DT000174,Anh Tuấn + Anh Tú
-DT000173,Anh Tuấn  + Anh Tú + Lalamove
-DT000172,A Tuấn + A Thọ + A Duẩn xe tải
-DT000171,DOROSIN
-DT000170,Anh Duẩn xe tải
-DT000169,Sales Kiên
-DT000168,Anh Thế Anh ba gác + Anh Tú
-DT000167,Xe tải a Duẩn + Anh Trường
-DT000166,Xe tải Anh Duẩn + Thọ+Tiệp
-DT000165,Xe tải a Duẩn
-DT000164,xe tải anh Duẩn + Thọ
-DT000163,xe tải anh Duẩn + Tiệp
-DT000162,xe tải anh Duẩn + anh Văn Anh
-DT000161,xe tải anh Duẩn + anh Tú
-DT000160,xe tải anh Duẩn + anh Tuấn
-DT000159,Lalamove + Anh Thọ + Anh Tiệp
-DT000158,Thọ + Tiệp
-DT000157,Lalamove + sale Tuấn Anh
-DT000156,A Tuấn + Văn Anh + Lalamove
-DT000155,Anh Thế Anh + Anh Tuấn
-DT000154,CDC
-DT000153,Tiệp + Tú + Văn Anh
-DT000151,Lalamove + Thọ + Văn Anh
-DT000150,Hà Văn Anh + lalamove
-DT000149,Sales Tuấn Anh
-DT000148,Lalamove + Anh Tú + Anh Văn Anh
-DT000146,Anh Tú + Anh văn Anh
-DT000145,Hà Văn Anh
-DT000144,Lalamove + Anh Thọ
-DT000142,Anh Thọ
-DT000141,Thọ + Văn Anh
-DT000140,Lalamove + Anh Văn Anh
-DT000139,Lalamove + Anh Tiệp + Anh Văn Anh
-DT000138,Anh Tiệp + Anh Văn Anh
-DT000137,Lalamove + Anh Tú
-DT000136,Anh Hưởng Sevilla - NCC
-DT000135,Anh Văn Anh
-DT000134,Ship Thọ xe máy
-DT000133,Khách qua kho bốc
-DT000132,Xe ghép đi tỉnh
-DT000131,Anh Tú
-DT000130,Anh Thế
-DT000129,Lalamove + Anh Trường
-DT000128,Lalamove + Nhà xe
-DT000126,Anh Ninh
-DT000125,Lalamove + Anh Tuấn + Tiệp
-DT000123,Anh Tiệp + Anh Sơn già
-DT000122,Anh Trà ba gác + Anh Tuấn
-DT000121,Xe tải Lạng sơn 29B 638-57
-DT000120,Nguyễn Kim
-DT000119,Anh Trà ba gác + Anh Sơn già
-DT000099,Minh Ngọc
-DT000118,Hưng Thịnh
-DT000117,NCC lẻ
-DT000116,Lalamove + Anh Mạnh SGT
-DT000115,Anh Mạnh SGT
-DT000113,Green Air + Anh Nghiêm
-DT000112,Nhà xe
-DT000111,Anh Thể
-DT000110,Lalamove + Anh Nghiêm
-DT000109,Anh Trung Điều Hòa
-DT000108,Anh Tiệp + anh Trung Điều Hòa
-DT000100,Chú Thức + anh Trung Điều Hòa
-DT000098,Chú Cường
-DT000097,NPP Hưng Thịnh
-DT000096,Anh Thế Anh ba gác
-DT000094,ĐMX + Nhà xe
-DT000093,Lalamove + Anh Khánh
-DT000092,Nguyễn Hoàng Bosch + NPP Hưng Thịnh
-DT000090,Lalamove + Anh Sơn già
-DT000084,Nhất Tín
-DT000080,Tín Phát
-DT000078,Lalamove + Anh Khánh
-DT000077,Anh Tiệp + xe ba gác
-DT000076,Anh Tuấn + xe ba gác
-DT000075,Ship ngoài
-DT000073,ĐMX
-DT000072,LG
-DT000071,SGT + Nhà xe
-DT000070,Grab
-DT000069,Việt Hải Thanh Oai
-DT000068,Anh Tiệp + xe cắt nóc
-DT000067,Huyền Trang
-DT000066,Anh Tuấn + xe cắt nóc
-DT000065,Anh Tuấn + Chú Thức + Anh Khánh
-DT000064,Kinh Đô
-DT000063,Anh Khánh
-DT000062,Anh Tiệp - sẽ xóa
-DT000061,Anh Tiệp + Đất Việt
-DT000060,Gia Hân
-DT000059,Anh Tiệp + Nhà xe
-DT000058,Anh Tuấn + Anh Tiệp
-DT000057,Anh Trà ba gác
-DT000056,Anh Tuấn + Anh Tiệp + Lalamove
-DT000055,Lalamove + Anh Tiệp
-DT000054,Anh Hiếu
-DT000053,Anh Tiệp
-DT000052,anh Tấn
-DT000051,Umbala
-DT000050,HC
-DT000049,Anh Định
-DT000048,Chú Thức + Anh Ba
-DT000047,Minh Phương
-DT000046,Anh Tuấn + Nhà xe
-DT000045,Nhà xe Ninh Bình
-DT000044,Nguyễn Hoàng BOSCH
-DT000043,Lái Xe Trung Xuân
-DT000042,Anh Nghiêm
-DT000040,Anh Đại + Nhà xe
-DT000039,Anh Tuấn + Anh Đại
-DT000038,Long Anh
-DT000037,Lalamove + Anh Đại
-DT000036,Thông Linh
-DT000035,Nhà Xe Thành Thắng HN-HP + Anh Tuấn
-DT000034,Anh Tuấn + Anh Đại + Lalamove
-DT000033,Tuấn Anh HD
-DT000032,Viettel Post/GHN/GHTK
-DT000031,Anh Đại
-DT000030,Chú Thức + Anh Trường
-DT000029,Homematic
-DT000028,Hiếu Linh
-DT000027,Bếp Đức
-DT000026,Green Air
-DT000025,Nhân Việt
-DT000024,Đất Việt
-DT000023,Nishu
-DT000022,DTL
-DT000021,Perfecthome
-DT000020,Ngân giá treo
-DT000019,179
-DT000018,Nguyễn Kim + Anh Tuấn
-DT000017,Chú Thức + Anh Tuấn
-DT000016,Lalamove + Anh Tuấn
-DT000015,Anh Tuấn
-DT000014,Anh Vịnh
-DT000013,Anh Trường
-DT000012,Kỹ sư điện máy
-DT000011,Anh Sơn trẻ
-DT000010,Chú Gia
-DT000009,Anh Mạnh
-DT000008,Minh Lộc
-DT000007,Khang Anh
-DT000006,Anh Sơn già
-DT000005,Chú Thức ba gác
-DT000004,Lalamove + Anh Ba
-DT000003,SGT
-DT000002,Lalamove
-DT000001,Anh Ba
+"Mã nhà cung cấp","Tên nhà cung cấp"
+"GIA HUY","GIA HUY"
+"SUNNY","SUNNY"
+"Cường Phát","Cường Phát"
+"CÔNG TY TNHH AZUKI INTERNATIONAL","CÔNG TY TNHH AZUKI INTERNATIONAL"
+"NCC000152","Anh Tín LG"
+"KITCHENHOMES","KITCHENHOMES"
+"0312460468","CÔNG TY TNHH ĐIỆN MÁY GIA KHANG"
+"CÔNG TY CỔ PHẦN G5 VIỆT NAM","CÔNG TY CỔ PHẦN G5 VIỆT NAM"
+"CHEFZONE","CHEFZONE"
+"Mỹ Lan","Mỹ Lan"
+"Lượng sunhouse","Lượng sunhouse"
+"Hương Thuỷ","Hương Thuỷ"
+"0900221322","CÔNG TY CP SẢN XUẤT VÀ THƯƠNG MẠI AN PHÁT"
+"Duyên Thành Phát - ANH ĐỨC THÀNH PHÁT","Duyên Thành Phát - ANH ĐỨC THÀNH PHÁT"
+"0901050711","CƯỜNG TƯ"
+"0109317132","TECHZONE - UGREEN"
+"0106152838","Thiết Bị Số - Điện tử Minh Thanh"
+"0111122187","Đại lí Hoàng Loan - ĐM AN KHANG"
+"NCC000151","Điên máy Như Thảo"
+"ĐIỆN MÁY KHO","ĐIỆN MÁY KHO"
+"Thế giới Bêp (Bếp Đại Phong)","Thế giới Bêp (Bếp Đại Phong)"
+"ĐM Hùng Anh","Điện máy Hùng Anh"
+"NCC000150","Điện máy Hoàng Gia"
+"0316512614","Công ty Cổ phần Kosmen"
+"PICO","PICO"
+"NCC000149","Công ty TNHH Dich Vụ Đầu Tư Và Thương Mại Anh Đức"
+"NCC000148","Cao Lực Eurosun"
+"Phú lộc","Phúc Lộc"
+"Minh Trí Thành","Minh Trí Thành"
+"Blustone","Blustone"
+"TCL","Huy Nghiêm TCL - Hương Thủy"
+"Linco Philips","Linco Philips"
+"Buchen","Buchen"
+"NCC000147","Minh Hưng"
+"NCC000146","Daikin VietNam - Hãng"
+"NCC000145","Hãng CASPER"
+"NCC000144","Điện Lạnh Nam Đồng"
+"NCC000143","Quang Lục"
+"NCC000142","Trí Thành"
+"NCC000141","Đội Việt Điều hòa"
+"NCC000140","Nguyễn Kim - Anh Hà"
+"NCC000139","Điện lạnh Thịnh Phát"
+"NCC000138","Lê Gia Group Gia Dụng"
+"NCC000137","Điện lạnh Anh Thư"
+"NCC000136","Chị Oanh Hatsu-K"
+"NCC000135","Bảo Minh"
+"NCC000134","ĐMMB"
+"NCC000133","Điện lạnh Việt Anh"
+"NCC000132","Thanh Tùng SamSung"
+"NCC000131","AHB"
+"NCC000130","Điện máy Thành Công"
+"NCC000129","Đại Quang Minh"
+"NCC000128","HIỂN HITACHI"
+"NCC000127","MyHome"
+"NCC000126","Điện lạnh Tân Nhật Minh"
+"NCC000125","Điện lạnh Toàn Cầu"
+"NCC000124","Điện máy Thiên Hà"
+"NCC000123","Điện máy Chung Trang"
+"NCC000122","Lioa Nhật Linh"
+"NCC000121","Hoàng Long (HDMI)"
+"NCC000120","O-TECH"
+"NCC000119","Đại lợi"
+"NCC000118","Anh Ngọc Alaska"
+"NCC000117","Mạnh Tiến"
+"NCC000116","Công ty cổ phần XNK & TM Lê Gia"
+"NCC000115","Ngọc Nguyên ( chợ)"
+"NCC000114","Nguyễn Kim - A Huy"
+"NCC000113","Quỳnh LG"
+"NCC000112","NGÂN PHILIPS"
+"NCC000111","Điện máy An Phú"
+"0108045687","Công Ty Cổ Phần Công Nghệ Kết Nối ALPHA"
+"NCC000110","HỢP LONG"
+"NCC000109","Nguyễn Tân Sunhouse"
+"NCC000108","Hitachi (hãng)"
+"NCC000107","Quang Hạnh"
+"NCC000106","Điện máy Quốc Nguyên"
+"NCC000105","NCC lẻ  - Linco"
+"NCC000104","Anh Đức KCMG"
+"NCC000103","KHANG VIỆT"
+"NCC000102","Hải Đăng"
+"NCC000101","BOSCH HUYỀN"
+"NCC000100","Điện máy Minh Khang"
+"NCC000099","Điện máy Nhà Việt"
+"NCC000098","Quyết Anh"
+"NCC000097","Thành bếp Nhập khẩu Châu Âu"
+"NCC000096","Điện máy Ngọc Sơn"
+"NCC000095","Xuân Minh"
+"NCC000094","NCC lẻ - NEW (từ 21.9 nhập vào đây)"
+"Fuji Air","Fuji Air"
+"TTC","Công ty cổ phần đầu tư và dịch vụ thương mại TTC"
+"NCC000093","Test tao NCC de nhap hang"
+"NCC000092","Điện máy ECC"
+"NCC000091","Kangaroo Minh Khai"
+"NCC000090","Thừa kho chưa rõ nguyên nhân"
+"NCC000089","LG - ELECTRONIC HÃNG"
+"Thảo Nguyên HD","Thảo Nguyên HD"
+"Gia dụng Sunhouse","Gia dụng Sunhouse"
+"Điện máy Minh Quân","Điện máy Minh Quân"
+"Điện máy Tiên Phong","Điện máy Tiên Phong"
+"NCC000088","Huân Hoài Đức"
+"NCC000087","CÔNG TY TNHH BẾP NHẬT MINH"
+"NCC000086","Ngọc Thái Bình - Loa"
+"NCC000085","Điện máy xanh (new)"
+"HAILINH","NCC Hải Linh"
+"NCC000084","NCC Phúc Nhật Minh ( Đức Nổ )"
+"NCC000083","Hùng Phát - Tủ đông"
+"NCC000082","Anh Tài - Bosch Hafele Malloca"
+"NCC000081","HOÀNG ĐỨC - ĐMX"
+"QUANG CẢNH","ĐIỆN MÁY QUANG CẢNH"
+"TRỌNG TÍN","TRỌNG TÍN"
+"NCC000080","MINH BOSCH"
+"NCC000079","Công Ty TNHH Sản Xuất Tập Đoàn Đại Việt (MÁY LỌC NƯỚC)"
+"NCC000078","QUẠT CN"
+"ĐIỆN MÁY THC","ĐIỆN MÁY THC"
+"AMARE","Amare VN"
+"HOANGVUONG","HOÀNG VƯƠNG"
+"DIENMAYHT","ĐIỆN MÁY HT"
+"VIETHOANG","Việt Hoàng"
+"MEDIA","Media"
+"TRUNGNGHIA","Trung Nghĩa Thái Nguyên"
+"TAHOME","TAHOME"
+"THIM ĐOÀN","THIM ĐOÀN"
+"NCC000077","LƯƠNG BÉ"
+"NCC01","NCCTEST1"
+"MIG","MIG Home"
+"Canzy","Công ty CP Canzy Việt Nam"
+"NCCLELANANH","NCC LẺ - LAN ANH"
+"NCC000076","FPT"
+"KOMEX","GIA DỤNG XIAOMI (KOMEX)"
+"NCC lẻ 440 Bạch Đằng","NCC lẻ 440 Bạch Đằng"
+"NCC000075","Anh Hải NB Panasonic"
+"NPPSPC","NPP SPC"
+"Hương Anh","Hương Anh"
+"NCC000074","LOAN THÚY"
+"Thiết bị Điện Tử Việt Nam","Thiết bị Điện Tử Việt Nam"
+"HIEUHUY","Hiếu Huy"
+"NCC000073","Anh Lâm"
+"NCC000072","Việt Phát"
+"HANHLG","Hạnh LG"
+"HANHLINHTHAIBINH","HẠNH LINH THÁI BÌNH"
+"NCC000071","Anh Đức"
+"Kenhbuongiadung","Kênh Buôn Gia Dụng"
+"Thành Cata","Thành Cata"
+"LAZADA","LAZADA"
+"NCC000070","Hiền Sinh"
+"THUANBACGIANG","THUẬN BẮC GIANG"
+"NCC000069","Quang Dũng"
+"NHUNGTHANG","Điện Máy Nhung Thắng"
+"ĐỨC THỊNH","ĐỨC THỊNH"
+"NCC000068","ANH THẮNG MÁY HÚT MÙI"
+"NCC000067","CHỊ ÁNH QUẠT PANASONIC"
+"Điện máy Minh Hiếu","Điện máy Minh Hiếu"
+"VŨ LINH ANY","VŨ LINH ANY ( Sanaky Alaska )"
+"Tâm Thật Tâm","Tâm Thật Tâm"
+"0108665313","NAM SƠN"
+"NCC000066","THẮNG BENZEN"
+"NGOCNGUYENCHAU","Ngọc Nguyên Châu"
+"HUNGPHATDAIKIN","Hùng Phát Daikin"
+"Thắng Long Anh","Thắng Long Anh"
+"Minh Tân","Minh Tân"
+"SYDH","Đội Sỹ Điều hòa"
+"NCC000065","Anh Dũng"
+"Hùng Nguyễn","Hùng Nguyễn"
+"Gia dụng SUPPO","Gia dụng SUPPO"
+"THANHPHAT","THÀNH PHÁT"
+"TRIỆU HÀO SAMSUNG","TRIỆU HÀO SAMSUNG"
+"0302286281-027","Nguyễn Kim - Nguyễn Trãi"
+"DIENMAYVIET","Điện máy Việt (Lan Anh)"
+"MINHDUNG","MINH DŨNG"
+"COQUOCANH","CƠ QUỐC ANH"
+"PROBUY","Probuy"
+"TIENNGOC","Gia Dụng Tiến Ngọc"
+"TRANNAM","Trần Nam"
+"NCC000064","MẠNH QUANG"
+"GIADUNGTUANANH","GIA DỤNG TUẤN ANH"
+"CUONGHAFELE","CƯỜNG HAFELE"
+"DIENMAY88","Điện máy 88"
+"NGATUAN","NGA TUẤN"
+"DUNGLINH","DŨNG LINH"
+"CATA","CATA"
+"OSM","CT CP TM OSM Viet Nam"
+"NCC000063","Hoàng Vinh"
+"HOANGPHAT","HOÀNG PHÁT"
+"GIAVIET","Điện máy Gia Việt"
+"TRUNGDIEUHOA","TRUNG ĐIỀU HÒA"
+"0108075931","VIỆT HƯNG"
+"NCC000061","Tuấn Tuty"
+"NCCRIENG","NCC riêng"
+"KitchenBosch","Kitchen Bosch - Nhật Minh"
+"LINHANH","Gia dụng Linh Anh"
+"NCC000060","GILLER"
+"NCC000058","HARISON"
+"AN VIỆT","AN VIỆT"
+"NCC000056","GIANG HOÀNG ĐỨC"
+"DOROSIN","DOROSIN"
+"XETAI","Xe tải Anh Duẩn"
+"CDC","CDC"
+"Faster","Faster VN"
+"Lê Minh","Lê Minh"
+"Thiều Bosch","Thiều Bosch"
+"0109732227","Cadima"
+"BPS","Công ty BPS VN"
+"0900512000","Điện máy Tuấn Ngoan"
+"Quang Thủy","Điện máy Quang Thuỷ"
+"Sevilla","Anh Hưởng Sevilla"
+"SAMSUNG","Samsung"
+"NGOCMRB","Ngọc Mrb (Gia dụng)"
+"Tân Thủy","Tân Thủy"
+"ĐMHN","Điện máy Hà nội"
+"TGDĐ","Thế giới di động - TGDĐ"
+"0110252401","CÔNG TY CỔ PHẦN SAL SALA"
+"0106300067","Anh Cường - Ngọc Minh"
+"0101889138","FujiE"
+"Sosavo","Sosavo"
+"Hùng Nguyễn Kim Tràng Thi","Hùng Nguyễn Kim Tràng Thi"
+"Komasu","Quạt Komasu"
+"0101446129","Nguyệt Trang"
+"0108613033","NPP Hưng Thịnh"
+"0309413027","Phú Danh"
+"Gia Hưng","Gia Hưng"
+"Thế Hằng","Thế Hằng"
+"A2T","A2T"
+"0110214251","Việt Hải Thanh Oai"
+"0109194057","Thịnh Phát (Gia dụng)"
+"Tưởng Đền Lừ","Tưởng Đền Lừ"
+"0302309845­-058","Chợ Lớn"
+"Huyền Trang","Huyền Trang"
+"0109486821","Kinh Đô"
+"0108088200","Đức Kiên"
+"0108753753","Tín Phát"
+"Hào Quang","Hào Quang"
+"Anh Quân","anh Quân"
+"0106236615","Vũ Linh"
+"Tuyết Tây Trà","Tuyết Tây Trà"
+"4601607029","Gia Hân"
+"ĐMX Thạch Bàn","ĐMX Thạch Bàn"
+"Bẩy Lợi","Bẩy Lợi"
+"Umbala","Umbala"
+"Chiến TN","Chiến Thái Nguyên"
+"0101301613","Hoàng Hải"
+"NCC000055","Tuấn (Nam Định)"
+"Tuấn Anh Thái Nguyên","Tuấn Anh Thái Nguyên"
+"Bích Ngọc","Bích Ngọc"
+"Hưng Thịnh","Điện máy Hưng Thịnh"
+"0101548508","Nhất Tín"
+"0105690657","HC"
+"Nguyễn Hoàng Bosch","Nguyễn Hoàng Bosch"
+"0106433331","Bảo Uyên"
+"0107096103","anh Chiểu Ela"
+"Khánh Trường","Khánh Trường"
+"0105184989","Long Anh"
+"NCC000045","MI"
+"0110519503","Thông Linh"
+"Quốc Hưng","Quốc Hưng"
+"0109957453","Tuấn Anh HD"
+"NCC000042","Kaijisu"
+"0101161194","Hacom"
+"Homematic","Homematic"
+"Shopee","Shopee"
+"0109962502","Gigadigital"
+"0107004536","Minh Phương"
+"0105798682","Minh Ngọc"
+"0104539300","Hanomech"
+"0104406974","Chí Cường"
+"0107985222","Perfecthome"
+"0107721082","Phúc Song Kim"
+"Hiếu Linh","Hiếu Linh"
+"Ngân giá treo","Ngân giá treo"
+"0108011247","Green Air"
+"LG","LG hãng"
+"Phụ kiện điện tử","Phụ kiện điện tử (phukiendientu.vn)"
+"0101096322","Vinadu"
+"0105928003","Nishu"
+"0110242876","Thăng Long"
+"Ngọc Ánh","Ngọc Ánh"
+"0106572744","Nhân Việt"
+"Nguyễn Kim","Nguyễn Kim - Anh Trung, anh Tâm"
+"Ship","Ship"
+"Thành Luân","Thành Luân"
+"Điện máy Eco","Điện máy Eco"
+"Kaijisu","Kaijisu"
+"4601590819","Trung Xuân"
+"Hoàng Sam","Hoàng Sam (Điện máy Hà Nội)"
+"0109111685","Kỹ sư điện máy"
+"0109485313","DTL"
+"0107991339","Đất Việt"
+"0109185398","Minh Lộc"
+"0105517243","Khang Anh"
+"0110023151","An Phát"
+"0200591141-003","Samnec"
+"1000337132","Ánh Chinh - Thái Bình"
+"Văn Quân","Văn Quân"
+"Hoàn Kiếm","Hoàn Kiếm"
+"0109502304","179"
+"0101325854","Việt Hàn"
+"0100367812","Việt Hải"

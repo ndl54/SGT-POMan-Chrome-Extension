@@ -306,6 +306,7 @@ select option {
     color: var(--text-muted);
 }
 
+
 ::-webkit-scrollbar {
     width: 6px;
 }

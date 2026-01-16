@@ -2,12 +2,14 @@
 const SHEET_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/edit`;
 const PARTNER_SHEET_NAME = 'Doi_Tac_Giao_Hang';
 const SUPPLIER_SHEET_NAME = 'Nha_Cung_Cap';
-const PARTNER_SHEET_CSV_URL = getSheetCsvUrl(PARTNER_SHEET_NAME);
-const SUPPLIER_SHEET_CSV_URL = getSheetCsvUrl(SUPPLIER_SHEET_NAME);
+const PARTNER_SHEET_GID = '0';
+const SUPPLIER_SHEET_GID = '1394006768';
+const PARTNER_SHEET_CSV_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&gid=${PARTNER_SHEET_GID}`;
+const SUPPLIER_SHEET_CSV_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&gid=${SUPPLIER_SHEET_GID}`;
 const PARTNER_CSV_PATH = 'doitacgiaohang.csv';
-const PARTNER_CACHE_KEY = 'partnerCache';
+const PARTNER_CACHE_KEY = 'partnerCacheV2';
 const SUPPLIER_CSV_PATH = 'nhacungcap.csv';
-const SUPPLIER_CACHE_KEY = 'supplierCache';
+const SUPPLIER_CACHE_KEY = 'supplierCacheV3';
 const CASES_WITH_PARTNER = new Set(['case1', 'case2']);
 const PARTNER_SUGGESTION_LIMIT = 80;
 const SUPPLIER_SUGGESTION_LIMIT = 80;
@@ -70,7 +72,18 @@ document.addEventListener('DOMContentLoaded', () => {
     loadAllData(elements);
 });
 
+function handleCaseChange(elements) {
+    const caseValue = elements.caseSelect.value;
+    const needsPartner = CASES_WITH_PARTNER.has(caseValue);
 
+    elements.partnerRow.hidden = !needsPartner;
+    elements.partnerInput.disabled = !needsPartner;
+
+    if (!needsPartner) {
+        elements.partnerInput.value = '';
+        elements.partnerList.innerHTML = '';
+    }
+}
 
 function handlePartnerInput(elements) {
     if (elements.partnerInput.disabled) {
@@ -79,9 +92,36 @@ function handlePartnerInput(elements) {
     }
     renderPartnerOptions(elements.partnerList, partnerRecords, elements.partnerInput.value);
 }
+
+function handleSupplierInput(elements) {
+    if (elements.supplierInput.disabled) {
+        elements.supplierList.innerHTML = '';
+        return;
+    }
+    renderSupplierOptions(elements.supplierList, supplierRecords, elements.supplierInput.value);
+}
+
+function openSheet() {
+    if (chrome?.tabs?.create) {
+        chrome.tabs.create({ url: SHEET_URL });
+        return;
+    }
+    window.open(SHEET_URL, '_blank', 'noopener');
+}
 function setStatus(elements, key, message) {
     statusState[key] = message;
-    elements.dataStatus.textContent = `Đối tác: ${statusState.partner} | Nhà cung cấp: ${statusState.supplier}`;
+    const timestamp = extractStatusTimestamp(statusState.partner) || extractStatusTimestamp(statusState.supplier);
+    elements.dataStatus.textContent = timestamp
+        ? `Dữ liệu đối tác: ${timestamp}`
+        : 'Dữ liệu đối tác: chưa có';
+}
+
+function extractStatusTimestamp(message) {
+    if (!message) {
+        return '';
+    }
+    const match = message.match(/(\d{1,2}:\d{2}:\d{2}\s+\d{1,2}\/\d{1,2}\/\d{4})/);
+    return match ? match[1] : '';
 }
 
 function loadAllData(elements) {
@@ -141,7 +181,7 @@ function refreshPartnerData(elements) {
             return response.text();
         })
         .then((csvText) => {
-            const records = parseCsvRecords(csvText, ['ma', 'madoitac', 'code']);
+            const records = parseCsvRecords(csvText, ['ma', 'madoitac', 'code'], normalizePartnerValue);
             if (!records.length) {
                 throw new Error('Dữ liệu đối tác trống');
             }
@@ -172,7 +212,7 @@ function refreshSupplierData(elements) {
             return response.text();
         })
         .then((csvText) => {
-            const records = parseCsvRecords(csvText, ['ma', 'manhacungcap', 'code', 'ma nha cung cap', 'ma_nha_cung_cap']);
+            const records = parseCsvRecords(csvText, ['ma', 'manhacungcap', 'code', 'ma nha cung cap', 'ma_nha_cung_cap'], normalizeSupplierValue);
             if (!records.length) {
                 throw new Error('Dữ liệu nhà cung cấp trống');
             }
@@ -203,7 +243,7 @@ function fetchLocalPartnerCsv(elements) {
             return response.text();
         })
         .then((csvText) => {
-            const records = parseCsvRecords(csvText, ['ma', 'madoitac', 'code']);
+            const records = parseCsvRecords(csvText, ['ma', 'madoitac', 'code'], normalizePartnerValue);
             if (!records.length) {
                 throw new Error('File đối tác trống');
             }
@@ -225,7 +265,7 @@ function fetchLocalSupplierCsv(elements) {
             return response.text();
         })
         .then((csvText) => {
-            const records = parseCsvRecords(csvText, ['ma', 'manhacungcap', 'code', 'ma nha cung cap', 'ma_nha_cung_cap']);
+            const records = parseCsvRecords(csvText, ['ma', 'manhacungcap', 'code', 'ma nha cung cap', 'ma_nha_cung_cap'], normalizeSupplierValue);
             if (!records.length) {
                 throw new Error('File nhà cung cấp trống');
             }
@@ -241,11 +281,11 @@ function fetchLocalSupplierCsv(elements) {
 function setPartnerRecords(records, elements) {
     partnerRecords = records.map((record) => ({
         ...record,
-        normalizedCode: normalize(record.code),
-        normalizedName: normalize(record.name),
+        normalizedCode: normalizePartnerValue(record.code),
+        normalizedName: normalizePartnerValue(record.name),
         tokens: splitPartnerTokens(record.name),
-        label: `${record.name} [${record.code}]`,
-        labelNormalized: normalize(`${record.name} [${record.code}]`)
+        label: record.name,
+        labelNormalized: normalizePartnerValue(record.name)
     }));
     buildPartnerIndex(records);
     renderPartnerOptions(elements.partnerList, partnerRecords, elements.partnerInput.value);
@@ -259,10 +299,10 @@ function buildPartnerIndex(records) {
     };
 
     records.forEach((record) => {
-        const label = `${record.name} [${record.code}]`;
-        const labelKey = normalize(label);
-        const codeKey = normalize(record.code);
-        const nameKey = normalize(record.name);
+        const label = record.name;
+        const labelKey = normalizePartnerValue(label);
+        const codeKey = normalizePartnerValue(record.code);
+        const nameKey = normalizePartnerValue(record.name);
 
         partnerIndex.byLabel.set(labelKey, label);
         partnerIndex.byCode.set(codeKey, label);
@@ -272,14 +312,35 @@ function buildPartnerIndex(records) {
     });
 }
 
+function renderPartnerOptions(listElement, records, inputValue) {
+    const normalizedInput = normalizePartnerValue(inputValue || '');
+    listElement.innerHTML = '';
+    if (!normalizedInput) {
+        return;
+    }
+
+    const matches = getPartnerMatches(records, normalizedInput)
+        .slice(0, PARTNER_SUGGESTION_LIMIT);
+
+    const fragment = document.createDocumentFragment();
+
+    matches.forEach((record) => {
+        const option = document.createElement('option');
+        option.value = record.label;
+        fragment.appendChild(option);
+    });
+
+    listElement.appendChild(fragment);
+}
+
 
 function setSupplierRecords(records, elements) {
     supplierRecords = records.map((record) => ({
         ...record,
-        normalizedCode: normalize(record.code),
-        normalizedName: normalize(record.name),
-        label: `${record.name} [${record.code}]`,
-        labelNormalized: normalize(`${record.name} [${record.code}]`)
+        normalizedCode: normalizeSupplierValue(record.code),
+        normalizedName: normalizeSupplierValue(record.name),
+        label: record.name,
+        labelNormalized: normalizeSupplierValue(record.name)
     }));
     buildSupplierIndex(records);
     renderSupplierOptions(elements.supplierList, supplierRecords, elements.supplierInput.value);
@@ -293,10 +354,10 @@ function buildSupplierIndex(records) {
     };
 
     records.forEach((record) => {
-        const label = `${record.name} [${record.code}]`;
-        const labelKey = normalize(label);
-        const codeKey = normalize(record.code);
-        const nameKey = normalize(record.name);
+        const label = record.name;
+        const labelKey = normalizeSupplierValue(label);
+        const codeKey = normalizeSupplierValue(record.code);
+        const nameKey = normalizeSupplierValue(record.name);
 
         supplierIndex.byLabel.set(labelKey, label);
         supplierIndex.byCode.set(codeKey, label);
@@ -307,7 +368,7 @@ function buildSupplierIndex(records) {
 }
 
 function renderSupplierOptions(listElement, records, inputValue) {
-    const normalizedInput = normalize(inputValue || '');
+    const normalizedInput = normalizeSupplierValue(inputValue || '');
     listElement.innerHTML = '';
     if (!normalizedInput) {
         return;
@@ -381,7 +442,7 @@ function resolveSupplierLabel(inputValue) {
         return '';
     }
 
-    const normalized = normalize(trimmed);
+    const normalized = normalizeSupplierValue(trimmed);
 
     if (supplierIndex.byLabel.has(normalized)) {
         return supplierIndex.byLabel.get(normalized);
@@ -403,9 +464,10 @@ function resolveSupplierLabel(inputValue) {
     return trimmed;
 }
 
-function parseCsvRecords(csvText, codeHeaders) {
+function parseCsvRecords(csvText, codeHeaders, normalizeValue) {
     const lines = csvText.split(/\r?\n/).filter((line) => line.trim().length > 0);
     const records = [];
+    const normalizedCodeHeaders = codeHeaders.map((header) => normalizeHeaderValue(header, normalizeValue));
 
     lines.forEach((line, index) => {
         const fields = parseCsvLine(line);
@@ -419,9 +481,9 @@ function parseCsvRecords(csvText, codeHeaders) {
             return;
         }
 
-        const normalizedCode = normalize(code);
-        const normalizedName = normalize(name);
-        const isHeader = index === 0 && codeHeaders.includes(normalizedCode) && normalizedName.includes('ten');
+        const normalizedCode = normalizeHeaderValue(code, normalizeValue);
+        const normalizedName = normalizeHeaderValue(name, normalizeValue);
+        const isHeader = index === 0 && normalizedCodeHeaders.includes(normalizedCode) && normalizedName.includes('ten');
 
         if (isHeader) {
             return;
@@ -467,12 +529,28 @@ function parseCsvLine(line) {
     return fields;
 }
 
-function normalize(value) {
-    return value.toLowerCase().replace(/\s+/g, ' ').trim();
+function removeDiacritics(value) {
+    return value
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/đ/g, 'd')
+        .replace(/Đ/g, 'D');
+}
+
+function normalizePartnerValue(value) {
+    return removeDiacritics(value).toLowerCase().replace(/\s+/g, ' ').trim();
+}
+
+function normalizeSupplierValue(value) {
+    return removeDiacritics(value).toLowerCase().replace(/\s+/g, ' ').trim();
+}
+
+function normalizeHeaderValue(value, normalizeValue) {
+    return normalizeValue(value).replace(/[^\w\s]/g, '').replace(/\s+/g, ' ').trim();
 }
 
 function splitPartnerTokens(value) {
-    return normalize(value)
+    return normalizePartnerValue(value)
         .split('+')
         .map((part) => part.trim())
         .filter(Boolean);
@@ -541,7 +619,7 @@ function resolvePartnerLabel(inputValue) {
         return '';
     }
 
-    const normalized = normalize(trimmed);
+    const normalized = normalizePartnerValue(trimmed);
 
     if (partnerIndex.byLabel.has(normalized)) {
         return partnerIndex.byLabel.get(normalized);
